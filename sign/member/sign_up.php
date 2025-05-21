@@ -17,150 +17,611 @@ if(isset($_POST["signUp"]) ) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-     <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
-     <title>Sign Up || Member</title>
-    </head>
-  <body>
-  <div class="container">
-    <div class="card p-2 mt-5">
-      <div class="position-absolute top-0 start-50 translate-middle">
-        <img src="../../assets/memberLogo.png" alt="adminLogo" width="85px">
-      </div>
-      <h1 class="pt-5 text-center fw-bold">Sign Up</h1>
-      <hr>
-    <form action="" method="post" class="row g-3 p-4 needs-validation" novalidate>
-      
-    <label for="validationCustom01" class="form-label">Nisn</label>
-    <div class="input-group mt-0">
-    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-hashtag"></i></span>
-    <input type="number" class="form-control" name="nisn" id="validationCustom01" required>
-    <div class="invalid-feedback">
-        Nisn wajib diisi!
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <title>Sign Up || Member</title>
+    <style>
+    :root {
+        --primary: #4361ee;
+        --primary-dark: #3a56d4;
+        --secondary: #3f37c9;
+        --success: #4ade80;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --text-dark: #1e293b;
+        --text-light: #f8fafc;
+        --bg-light: #f8f9fa;
+        --bg-dark: #0f172a;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0f4f8;
+        background-image:
+            radial-gradient(at 10% 10%, rgba(67, 97, 238, 0.05) 0px, transparent 50%),
+            radial-gradient(at 90% 90%, rgba(76, 201, 240, 0.05) 0px, transparent 50%);
+        min-height: 100vh;
+        padding: 40px 0;
+    }
+
+    .container {
+        max-width: 800px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        background: white;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 40px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .card::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+        opacity: 0.1;
+    }
+
+    .card::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        left: -50px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4ade80 0%, #3f37c9 100%);
+        opacity: 0.1;
+    }
+
+    .logo-container {
+        width: 100px;
+        height: 100px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+        border: 5px solid white;
+        margin-top: -50px;
+        margin-bottom: 20px;
+    }
+
+    .logo-container img {
+        width: 70px;
+        height: auto;
+    }
+
+    h1 {
+        color: var(--text-dark);
+        font-weight: 700;
+        margin-top: 0.5rem;
+        font-size: 2rem;
+        background: linear-gradient(90deg, var(--primary), #4cc9f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    hr {
+        background-color: rgba(0, 0, 0, 0.05);
+        margin: 1.5rem 0;
+        opacity: 0.5;
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-label i {
+        color: var(--primary);
+        margin-right: 0.5rem;
+    }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .input-group:focus-within {
+        box-shadow: 0 3px 15px rgba(67, 97, 238, 0.15);
+    }
+
+    .input-group-text {
+        background-color: var(--primary);
+        border: none;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form-control,
+    .form-select {
+        border: none;
+        padding: 12px 15px;
+        font-size: 1rem;
+        background-color: white;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        box-shadow: none;
+        border-color: var(--primary);
+    }
+
+    .form-section {
+        background-color: rgba(67, 97, 238, 0.03);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-section-title {
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-section-title i {
+        margin-right: 8px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+    }
+
+    .btn-warning {
+        background-color: var(--warning);
+        border-color: var(--warning);
+        box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .btn-warning:hover {
+        background-color: #e59000;
+        border-color: #e59000;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+    }
+
+    .signin-link {
+        text-align: center;
+        margin-top: 1rem;
+        font-weight: 500;
+        color: #6b7280;
+    }
+
+    .signin-link a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .signin-link a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+    }
+
+    .signin-link a:hover::after {
+        width: 100%;
+    }
+
+    .invalid-feedback {
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    /* Custom select styling */
+    .custom-select-wrapper {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    .custom-select-wrapper .form-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234361ee' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 16px 12px;
+        padding-right: 2.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 15px;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+        }
+
+        .form-section {
+            padding: 15px;
+        }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card {
+        animation: fadeIn 0.6s ease forwards;
+    }
+
+    /* Success alert styling */
+    .alert-success {
+        background-color: #d1fae5;
+        border: none;
+        color: #065f46;
+        border-radius: 8px;
+        padding: 15px;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(16, 185, 129, 0.2);
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .alert-success::before {
+        content: '\f058';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+
+    /* Error alert styling */
+    .alert-danger {
+        background-color: #fee2e2;
+        border: none;
+        color: #b91c1c;
+        border-radius: 8px;
+        padding: 15px;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .alert-danger::before {
+        content: '\f071';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card p-4">
+            <div class="d-flex justify-content-center">
+                <div class="logo-container mt-3">
+                    <img src="../../assets/memberLogo.png" alt="Member Logo">
+                </div>
+            </div>
+            <h1 class="text-center">Daftar Member</h1>
+            <p class="text-center text-muted mb-4">Lengkapi formulir di bawah untuk mendaftar sebagai member
+                perpustakaan</p>
+            <hr>
+
+            <form action="" method="post" class="needs-validation" novalidate>
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <i class="fa-solid fa-user-circle"></i> Informasi Pribadi
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="validationCustom02" class="form-label">
+                                <i class="fa-solid fa-user"></i> Nama Lengkap
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                <input type="text" class="form-control" id="validationCustom02" name="nama"
+                                    placeholder="Masukkan nama lengkap" required>
+                                <div class="invalid-feedback">
+                                    Nama wajib diisi!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="validationCustom01" class="form-label">
+                                <i class="fa-solid fa-phone"></i> No Telepon
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                <input type="number" class="form-control" name="no_tlp" id="validationCustom01"
+                                    placeholder="Masukkan nomor telepon" required>
+                                <div class="invalid-feedback">
+                                    No telepon wajib diisi!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="gender" class="form-label">
+                                <i class="fa-solid fa-venus-mars"></i> Jenis Kelamin
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-venus-mars"></i></span>
+                                <select class="form-select" id="gender" name="jenis_kelamin" required>
+                                    <option value="" selected disabled>Pilih jenis kelamin</option>
+                                    <option value="Laki laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Jenis kelamin wajib dipilih!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="validationCustom01" class="form-label">
+                                <i class="fa-solid fa-calendar-days"></i> Tanggal Pendaftaran
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                <input type="date" class="form-control" name="tgl_pendaftaran" id="validationCustom01"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Tanggal pendaftaran wajib diisi!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Information Section -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <i class="fa-solid fa-graduation-cap"></i> Informasi Akademik
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="validationCustom01" class="form-label">
+                                <i class="fa-solid fa-hashtag"></i> NISN
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-hashtag"></i></span>
+                                <input type="number" class="form-control" name="nisn" id="validationCustom01"
+                                    placeholder="Masukkan NISN" required>
+                                <div class="invalid-feedback">
+                                    NISN wajib diisi!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="validationCustom01" class="form-label">
+                                <i class="fa-solid fa-id-card"></i> Kode Member
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
+                                <input type="text" class="form-control" name="kode_member" id="validationCustom01"
+                                    placeholder="Masukkan kode member" required>
+                                <div class="invalid-feedback">
+                                    Kode member wajib diisi!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="kelas" class="form-label">
+                                <i class="fa-solid fa-school"></i> Kelas
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-school"></i></span>
+                                <select class="form-select" id="kelas" name="kelas" required>
+                                    <option value="" selected disabled>Pilih kelas</option>
+                                    <option value="X">X</option>
+                                    <option value="XI">XI</option>
+                                    <option value="XII">XII</option>
+                                    <option value="XIII">XIII</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Kelas wajib dipilih!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="jurusan" class="form-label">
+                                <i class="fa-solid fa-book"></i> Jurusan
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-book"></i></span>
+                                <select class="form-select" id="jurusan" name="jurusan" required>
+                                    <option value="" selected disabled>Pilih jurusan</option>
+                                    <option value="Desain Gambar Mesin">Desain Gambar Mesin</option>
+                                    <option value="Teknik Pemesinan">Teknik Pemesinan</option>
+                                    <option value="Teknik Otomotif">Teknik Otomotif</option>
+                                    <option value="Desain Pemodelan Informasi Bangunan">Desain Pemodelan Informasi
+                                        Bangunan</option>
+                                    <option value="Teknik Konstruksi Perumahan">Teknik Konstruksi Perumahan</option>
+                                    <option value="Teknik Tenaga Listrik">Teknik Tenaga Listrik</option>
+                                    <option value="Teknik Instalasi Tenaga Listrik">Teknik Instalasi Tenaga Listrik
+                                    </option>
+                                    <option value="Teknik Komputer Jaringan">Teknik Komputer Jaringan</option>
+                                    <option value="Sistem Informatika Jaringan dan Aplikasi">Sistem Informatika Jaringan
+                                        dan Aplikasi</option>
+                                    <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                                    <option value="Desain Komunikasi Visual">Desain Komunikasi Visual</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Jurusan wajib dipilih!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Information Section -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <i class="fa-solid fa-lock"></i> Informasi Akun
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="validationCustom02" class="form-label">
+                                <i class="fa-solid fa-lock"></i> Password
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" id="validationCustom02" name="password"
+                                    placeholder="Masukkan password" required>
+                                <div class="invalid-feedback">
+                                    Password wajib diisi!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="validationCustom02" class="form-label">
+                                <i class="fa-solid fa-lock"></i> Konfirmasi Password
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                <input type="password" class="form-control" id="validationCustom02" name="confirmPw"
+                                    placeholder="Konfirmasi password" required>
+                                <div class="invalid-feedback">
+                                    Konfirmasi password wajib diisi!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex mb-3">
+                    <button class="btn btn-primary flex-grow-1" type="submit" name="signUp">
+                        <i class="fa-solid fa-user-plus me-2"></i>Daftar
+                    </button>
+                    <button type="reset" class="btn btn-warning text-light">
+                        <i class="fa-solid fa-rotate me-2"></i>Reset
+                    </button>
+                </div>
+
+                <div class="signin-link">
+                    <p>Sudah memiliki akun? <a href="sign_in.php">Sign In</a></p>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-    <label for="validationCustom01" class="form-label">Kode Member</label>
-  <div class="input-group mt-0">
-    <input type="text" class="form-control" name="kode_member" id="validationCustom01" required>
-    <div class="invalid-feedback">
-        Kode member wajib diisi!
-    </div>
-  </div>
-  <label for="validationCustom02" class="form-label">Nama Lengkap</label>
-  <div class="input-group mt-0">
-    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-    <input type="text" class="form-control" id="validationCustom02" name="nama" required>
-    <div class="invalid-feedback">
-        Nama wajib diisi!
-    </div>
-  </div>
-  <label for="validationCustom02" class="form-label">Password</label>
-  <div class="input-group mt-0">
-    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-    <input type="password" class="form-control" id="validationCustom02" name="password" required>
-    <div class="invalid-feedback">
-        Password wajib diisi!
-    </div>
-  </div>
-  <label for="validationCustom02" class="form-label">Confirm Password</label>
-  <div class="input-group mt-0">
-    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-    <input type="password" class="form-control" id="validationCustom02" name="confirmPw" required>
-    <div class="invalid-feedback">
-        Konfirmasi password wajib diisi!
-    </div>
-  </div>
-  
-  <div class="col input-group mb-2">
-  <label class="input-group-text" for="inputGroupSelect01">Gender</label>
-  <select class="form-select" id="inputGroupSelect01" name="jenis_kelamin">
-    <option selected>Choose</option>
-    <option value="Laki laki">Laki laki</option>
-    <option value="Perempuan">Perempuan</option>
-    </select>
-  </div>
-  
-  <div class="col input-group mb-2">
-  <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
-  <select class="form-select" id="inputGroupSelect01" name="kelas">
-    <option selected>Choose</option>
-    <option value="X">X</option>
-    <option value="XI">XI</option>
-    <option value="XII">XII</option>
-    <option value="XIII">XIII</option>
-    </select>
-  </div>
-  
-  <div class="input-group mb-2">
-  <label class="input-group-text" for="inputGroupSelect01">Jurusan</label>
-  <select class="form-select" id="inputGroupSelect01" name="jurusan">
-    <option selected>Choose</option>
-    <option value="Desain Gambar Mesin">Desain Gambar Mesin</option>
-    <option value="Teknik Pemesinan">Teknik Pemesinan</option>
-    <option value="Teknik Otomotif">Teknik Otomotif</option>
-    <option value="Desain Pemodelan Informasi Bangunan">Desain Pemodelan Informasi Bangunan</option>
-    <option value="Teknik Konstruksi Perumahan">Teknik Konstruksi Perumahan</option>
-    <option value="Teknik Tenaga Listrik">Teknik Tenaga Listrik</option>
-    <option value="Teknik Instalasi Tenaga Listrik">Teknik Instalasi Tenaga Listrik</option>
-    <option value="Teknik Komputer Jaringan">Teknik Komputer Jaringan</option>
-    <option value="Sistem Informatika Jaringan dan Aplikasi">Sistem Informatika Jaringan dan Aplikasi</option>
-    <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
-    <option value="Desain Komunikasi Visual">Desain Komunikasi Visual</option>
-    </select>
-  </div>
-  
-  <label for="validationCustom01" class="form-label">No Telepon</label>
-  <div class="input-group mt-0">
-    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
-    <input type="number" class="form-control" name="no_tlp" id="validationCustom01" required>
-    <div class="invalid-feedback">
-        No telepon wajib diisi!
-    </div>
-  </div>
-  
-  <label for="validationCustom01" class="form-label">Tanggal Pendaftaran</label>
-  <div class="input-group mt-0">
-    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days"></i></span>
-    <input type="date" class="form-control" name="tgl_pendaftaran" id="validationCustom01" required>
-    <div class="invalid-feedback">
-        Tanggal pendaftaran wajib diisi!
-    </div>
-  </div>
-  
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit" name="signUp">Sign Up</button>
-    <input type="reset" class="btn btn-warning text-light" value="Reset">
-  </div>
-  <p>Already have an account? <a href="sign_in.php" class="text-decoration-none text-primary">Sign In</a></p>
-</form>
-</div>
-  </div>
+
+    <script>
+    // Form validation
+    (() => {
+        'use strict'
+
+        const forms = document.querySelectorAll('.needs-validation')
+
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+
+        // Set default date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="tgl_pendaftaran"]').value = today;
+        });
+    })()
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </body>
-  
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-(() => {
-  'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-  </script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>
