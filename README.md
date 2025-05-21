@@ -21,4 +21,4 @@ Fitur fitur yang terdapat didalam aplikasi ini :
   - membayar denda
 
 
-Created by Mangandaralam Sakti - Student At SMKN 1 Jakarta
+Created by Alpian - Student At SMKN 7 Samarinda
