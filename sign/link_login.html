@@ -1,35 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Get started</title>
-  </head>
-  <body>
-  <div class="container p-5">
-    <div class="d-flex justify-content-center">
-      <div class="card" style="width: 30rem;">
-        <img src="../assets/logoFooter.png" class="card-img-top" alt="logo">
-        <hr>
-      <div class="card-body pt-2">
-        <h3 class="card-text text-center">Portal Login Perpustakaan</h3>
-        <p class="card-text text-center">Silahkan pilih halaman login sesuai dengan status Anda</p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>CuyPerpus - Portal Login</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3a56d4;
+      --secondary: #3f37c9;
+      --success: #4ade80;
+      --success-dark: #22c55e;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --text-dark: #1e293b;
+      --text-light: #f8fafc;
+      --bg-light: #f8f9fa;
+      --bg-dark: #0f172a;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(67, 97, 238, 0.05) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(76, 201, 240, 0.05) 0px, transparent 50%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 500px;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      background: white;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+      opacity: 0.1;
+    }
+    
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4ade80 0%, #3f37c9 100%);
+      opacity: 0.1;
+    }
+    
+    .logo-container {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .logo-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+    
+    .logo-img {
+      max-width: 200px;
+      height: auto;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+      position: relative;
+      z-index: 1;
+    }
+    
+    .card-title {
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(90deg, var(--primary), #4cc9f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-subtitle {
+      color: var(--gray-600);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), #4cc9f0);
+      border-radius: 3px;
+    }
+    
+    hr {
+      background-color: var(--gray-200);
+      opacity: 0.5;
+      margin: 1.5rem 0;
+    }
+    
+    .btn {
+      border: none;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+    }
+    
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--gray-600) 0%, var(--gray-700) 100%);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, var(--gray-700) 0%, var(--gray-800) 100%);
+    }
+    
+    .btn-success {
+      background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background: linear-gradient(135deg, var(--success-dark) 0%, #15803d 100%);
+    }
+    
+    .login-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .card-body {
+      padding: 2rem;
+    }
+    
+    .icon-container {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.75rem;
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card {
+      animation: fadeIn 0.6s ease forwards;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .card-title {
+        font-size: 1.5rem;
+      }
+      
+      .card-body {
+        padding: 1.5rem;
+      }
+      
+      .btn {
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="logo-container">
+        <img src="../assets/logoFooter.png" class="logo-img" alt="CuyPerpus Logo">
       </div>
+      
+      <div class="card-body text-center">
+        <h3 class="card-title">Portal Login Perpustakaan</h3>
+        <p class="card-subtitle">Silahkan pilih halaman login sesuai dengan status Anda</p>
+        
         <hr>
-      <div class="card-body pt-2">
-        <h4 class="card-text text-center">Akses Login</h4>
-        <div class="row gap-2 p-2">
-          <a class="btn btn-secondary" href="admin/sign_in.php">Admin</a>
-          <a class="btn btn-primary mb-2" href="member/sign_in.php">Siswa</a>
-          <hr>
-          <a class="btn btn-success" href="../index.php">Kembali</a>
+        
+        <h4 class="section-title">Akses Login</h4>
+        <div class="login-options">
+          <a class="btn btn-secondary" href="admin/sign_in.php">
+            <i class="fas fa-user-shield fa-lg"></i>
+            <span>Admin</span>
+          </a>
+          
+          <a class="btn btn-primary" href="member/sign_in.php">
+            <i class="fas fa-user-graduate fa-lg"></i>
+            <span>Siswa</span>
+          </a>
         </div>
-      </div>
+        
+        <hr>
+        
+        <a class="btn btn-success" href="../index.php">
+          <i class="fas fa-home fa-lg"></i>
+          <span>Kembali ke Beranda</span>
+        </a>
       </div>
     </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

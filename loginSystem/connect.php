@@ -3,7 +3,7 @@
 $host = "127.0.0.1";
 $username = "root";
 $password = "";
-$database = "perpustakaan";
+$database = "sistem-perpustakaan";
 $connect = mysqli_connect($host, $username, $password, $database);
 
 
