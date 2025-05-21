@@ -474,7 +474,7 @@
                     </p>
                     <p class="footer-text">
                         <i class="fa-solid fa-phone me-2"></i>
-                        +62 812 3456 7890
+                        +62 823 5487 7197
                     </p>
                 </div>
                 <div class="col-lg-4 mb-4">
