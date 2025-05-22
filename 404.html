@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Halaman Tidak Ditemukan | CuyPerpus</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/de8de52639.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/logoUrl.png" type="image/png" />
+    <style>
+      :root {
+        --primary: #4361ee;
+        --secondary: #3f37c9;
+        --accent: #4cc9f0;
+        --success: #4ade80;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --text-dark: #1e293b;
+        --text-light: #f8fafc;
+        --bg-light: #f8f9fa;
+        --bg-dark: #0f172a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: var(--text-dark);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        padding: 15px 0;
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-nav {
+        margin-left: auto;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+        color: var(--text-dark) !important;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        bottom: -3px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover:after,
+      .nav-link.active:after {
+        width: 100%;
+      }
+
+      .nav-link.active {
+        color: var(--primary) !important;
+        font-weight: 600;
+      }
+
+      /* 404 Section */
+      .error-section {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        position: relative;
+      }
+
+      .error-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%234361ee' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        z-index: 0;
+      }
+
+      .error-container {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 1000px;
+        width: 90%;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .error-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .error-code {
+        font-size: 8rem;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .error-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text-dark);
+      }
+
+      .error-text {
+        font-size: 1.1rem;
+        color: #6c757d;
+        margin-bottom: 30px;
+        max-width: 600px;
+      }
+
+      .error-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease;
+      }
+
+      .error-image:hover {
+        transform: scale(1.03);
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        padding: 11px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        margin-left: 15px;
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(67, 97, 238, 0.2);
+      }
+
+      .quick-links {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .quick-links h5 {
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text-dark);
+      }
+
+      .quick-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: rgba(67, 97, 238, 0.1);
+        color: var(--primary);
+        border-radius: 50px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .quick-link:hover {
+        background-color: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+      }
+
+      .quick-link i {
+        margin-right: 8px;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        padding: 30px 0;
+        margin-top: auto;
+      }
+
+      .footer-text {
+        color: #a1a1aa;
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      .footer-text a {
+        color: var(--accent);
+        transition: color 0.3s ease;
+        text-decoration: none;
+      }
+
+      .footer-text a:hover {
+        color: white;
+      }
+
+      /* Animation */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease forwards;
+      }
+
+      .delay-1 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.6s;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .error-code {
+          font-size: 6rem;
+        }
+
+        .error-title {
+          font-size: 2rem;
+        }
+
+        .error-container {
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .error-code {
+          font-size: 5rem;
+        }
+
+        .error-title {
+          font-size: 1.8rem;
+        }
+
+        .error-text {
+          font-size: 1rem;
+        }
+
+        .error-container {
+          padding: 25px;
+        }
+
+        .btn-primary,
+        .btn-outline {
+          display: block;
+          width: 100%;
+          margin: 10px 0;
+        }
+
+        .btn-outline {
+          margin-left: 0;
+        }
+
+        .quick-link {
+          padding: 8px 15px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .error-code {
+          font-size: 4rem;
+        }
+
+        .error-title {
+          font-size: 1.5rem;
+        }
+
+        .error-container {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="index.php">
+          <img src="assets/logoNav.png" alt="CuyPerpus Logo" width="120px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./DashboardAdmin/bantuan/bantuan.html">Bantuan</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary ms-lg-3" href="sign/link_login.html"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 404 Section -->
+    <section class="error-section">
+      <div class="container">
+        <div class="error-container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h1 class="error-code animate-fade-in">404</h1>
+              <h2 class="error-title animate-fade-in delay-1">
+                Halaman Tidak Ditemukan
+              </h2>
+              <p class="error-text animate-fade-in delay-2">
+                Maaf, halaman yang Anda cari tidak dapat ditemukan. Halaman
+                mungkin telah dipindahkan, dihapus, atau tidak pernah ada.
+              </p>
+              <div class="animate-fade-in delay-3">
+                <a href="index.php" class="btn btn-primary">
+                  <i class="fas fa-home me-2"></i> Kembali ke Beranda
+                </a>
+                <div style="margin-top: 20px;"></div>
+                <a href="./DashboardAdmin/bantuan/bantuan.html" class="btn btn-outline">
+                  <i class="fas fa-question-circle me-2"></i> Bantuan
+                </a>
+              </div>
+
+              <div class="quick-links animate-fade-in delay-3">
+                <h5>Mungkin Anda mencari:</h5>
+                <div>
+                  <a href="index.php#featuresSection" class="quick-link">
+                    <i class="fas fa-star"></i> Fitur
+                  </a>
+                  <a href="index.php#faqSection" class="quick-link">
+                    <i class="fas fa-question-circle"></i> FAQ
+                  </a>
+                  <a href="index.php#contactSection" class="quick-link">
+                    <i class="fas fa-envelope"></i> Kontak
+                  </a>
+                  <a href="sign/link_login.html" class="quick-link">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 text-center">
+              <img
+                src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg"
+                alt="404 Illustration"
+                class="error-image floating animate-fade-in delay-2"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-text">
+          &copy; 2025 <a href="index.php">CuyPerpus</a>. Made with
+          <i class="fas fa-heart text-danger"></i> by <a href="#">Alpian</a>
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
