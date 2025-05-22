@@ -644,7 +644,7 @@ if(!isset($_SESSION["signIn"]) ) {
                 <i class="fas fa-cog"></i>
                 <span class="menu-text">Pengaturan</span>
             </a>
-            <a href="#" class="menu-item">
+            <a href="bantuan/bantuan.html" class="menu-item">
                 <i class="fas fa-question-circle"></i>
                 <span class="menu-text">Bantuan</span>
             </a>
