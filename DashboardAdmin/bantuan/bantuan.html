@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pusat Bantuan CuyPerpus</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #4361ee;
+        --primary-dark: #3a56d4;
+        --secondary: #3f37c9;
+        --success: #4ade80;
+        --success-dark: #22c55e;
+        --info: #3b82f6;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --light: #f3f4f6;
+        --dark: #1f2937;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f9fafb;
+        color: var(--gray-800);
+        overflow-x: hidden;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background: white !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1) !important;
+        padding: 15px 0;
+      }
+
+      .navbar-brand img {
+        max-height: 40px;
+        transition: transform 0.3s ease;
+      }
+
+      .navbar-brand:hover img {
+        transform: scale(1.05);
+      }
+
+      .navbar-nav .nav-link {
+        font-weight: 500;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        margin: 0 5px;
+      }
+
+      .navbar-nav .nav-link:hover {
+        background-color: var(--gray-100);
+        color: var(--primary);
+      }
+
+      .navbar-nav .nav-link.active {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #4cc9f0 0%, var(--primary) 100%);
+        color: white;
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      /* Search Section */
+      .search-container {
+        background-color: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: -50px;
+        position: relative;
+        z-index: 10;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .search-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .search-form {
+        display: flex;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 15px 25px;
+        border: 1px solid var(--gray-200);
+        border-right: none;
+        border-radius: 50px 0 0 50px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-color: var(--gray-100);
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        background-color: white;
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+      }
+
+      .search-btn {
+        padding: 15px 30px;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 0 50px 50px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .search-btn:hover {
+        background-color: var(--primary-dark);
+      }
+
+      /* Help Categories */
+      .help-categories {
+        padding: 80px 0 40px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), #4cc9f0);
+        border-radius: 2px;
+      }
+
+      .category-card {
+        background-color: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--gray-200);
+      }
+
+      .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .category-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary) 0%, #4cc9f0 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .category-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 15px;
+      }
+
+      .category-description {
+        color: var(--gray-600);
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .category-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--gray-100);
+        color: var(--primary);
+        border-radius: 50px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .category-link:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 60px 0;
+        background-color: var(--gray-100);
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .accordion-item {
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .accordion-header {
+        background-color: white;
+      }
+
+      .accordion-button {
+        padding: 20px 25px;
+        font-weight: 600;
+        color: var(--gray-800);
+        background-color: white;
+        box-shadow: none !important;
+      }
+
+      .accordion-button:not(.collapsed) {
+        color: var(--primary);
+        background-color: white;
+      }
+
+      .accordion-button:focus {
+        box-shadow: none;
+        border-color: var(--gray-200);
+      }
+
+      .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234361ee' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+      }
+
+      .accordion-body {
+        padding: 20px 25px;
+        color: var(--gray-700);
+        background-color: white;
+      }
+
+      /* Video Tutorials */
+      .video-tutorials {
+        padding: 80px 0;
+      }
+
+      .video-card {
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        border: 1px solid var(--gray-200);
+      }
+
+      .video-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .video-thumbnail {
+        position: relative;
+        height: 200px;
+        background-color: var(--gray-200);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .video-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .video-play-button {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+
+      .video-play-button:hover {
+        transform: scale(1.1);
+        background-color: var(--primary-dark);
+      }
+
+      .video-info {
+        padding: 20px;
+      }
+
+      .video-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 10px;
+      }
+
+      .video-description {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+
+      .video-duration {
+        display: inline-block;
+        padding: 5px 15px;
+        background-color: var(--gray-100);
+        color: var(--gray-700);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 80px 0;
+        background-color: var(--gray-100);
+      }
+
+      .contact-card {
+        background-color: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .contact-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .contact-form .form-label {
+        font-weight: 500;
+        color: var(--gray-700);
+        margin-bottom: 8px;
+      }
+
+      .contact-form .form-control {
+        padding: 12px 15px;
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+      }
+
+      .contact-form textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .contact-form .btn-primary {
+        background-color: var(--primary);
+        border: none;
+        padding: 12px 25px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+      }
+
+      .contact-info {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid var(--gray-200);
+      }
+
+      .contact-info-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .contact-info-icon {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(67, 97, 238, 0.1);
+        color: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .contact-info-text {
+        color: var(--gray-700);
+      }
+
+      .contact-info-text a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .contact-info-text a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 60px 0 30px;
+      }
+
+      .footer-logo {
+        max-width: 150px;
+        margin-bottom: 20px;
+      }
+
+      .footer-description {
+        color: var(--gray-400);
+        margin-bottom: 30px;
+        max-width: 300px;
+      }
+
+      .footer-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-copyright {
+        color: var(--gray-500);
+      }
+
+      .footer-copyright span {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .footer-links-bottom {
+        display: flex;
+        gap: 20px;
+      }
+
+      .footer-links-bottom a {
+        color: var(--gray-500);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links-bottom a:hover {
+        color: white;
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .search-container {
+          margin-top: -40px;
+          padding: 25px;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .category-card {
+          padding: 25px;
+        }
+
+        .category-icon {
+          width: 70px;
+          height: 70px;
+          font-size: 1.8rem;
+        }
+
+        .category-title {
+          font-size: 1.2rem;
+        }
+
+        .contact-card {
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 0;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .search-container {
+          margin-top: -30px;
+          padding: 20px;
+        }
+
+        .search-input {
+          padding: 12px 20px;
+        }
+
+        .search-btn {
+          padding: 12px 20px;
+        }
+
+        .help-categories {
+          padding: 60px 0 30px;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+          margin-bottom: 40px;
+        }
+
+        .section-title::after {
+          width: 60px;
+          height: 3px;
+          bottom: -10px;
+        }
+
+        .category-card {
+          margin-bottom: 20px;
+        }
+
+        .faq-section,
+        .video-tutorials,
+        .contact-section {
+          padding: 50px 0;
+        }
+
+        .accordion-button {
+          padding: 15px 20px;
+        }
+
+        .accordion-body {
+          padding: 15px 20px;
+        }
+
+        .contact-card {
+          padding: 25px;
+        }
+
+        .footer {
+          padding: 50px 0 20px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-links-bottom {
+          justify-content: center;
+        }
+
+        .back-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .search-form {
+          flex-direction: column;
+        }
+
+        .search-input {
+          border-radius: 50px;
+          border-right: 1px solid var(--gray-200);
+          margin-bottom: 10px;
+        }
+
+        .search-btn {
+          border-radius: 50px;
+          width: 100%;
+        }
+
+        .category-icon {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .category-title {
+          font-size: 1.1rem;
+        }
+
+        .video-thumbnail {
+          height: 180px;
+        }
+
+        .video-play-button {
+          width: 50px;
+          height: 50px;
+          font-size: 1.2rem;
+        }
+
+        .contact-info-item {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .contact-info-icon {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease forwards;
+      }
+
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-5 {
+        animation-delay: 0.5s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.php">
+          <img src="../../assets/logoNav.png" alt="CuyPerpus Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sign/link_login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="bantuan.html">Bantuan</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-center">
+      <div class="container hero-content">
+        <h1 class="animate-fade-in">Pusat Bantuan CuyPerpus</h1>
+        <p class="animate-fade-in delay-1">
+          Temukan jawaban untuk pertanyaan Anda dan pelajari cara menggunakan
+          layanan perpustakaan digital kami dengan mudah
+        </p>
+      </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="container">
+      <div class="search-container animate-fade-in delay-2">
+        <h5 class="search-title">Apa yang ingin Anda ketahui?</h5>
+        <form class="search-form">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Cari bantuan..."
+          />
+          <button type="submit" class="search-btn">Cari</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Help Categories -->
+    <section class="help-categories">
+      <div class="container">
+        <h2 class="section-title animate-fade-in">Kategori Bantuan</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4 animate-fade-in delay-1">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-book-reader"></i>
+              </div>
+              <h3 class="category-title">Peminjaman Buku</h3>
+              <p class="category-description">
+                Pelajari cara meminjam, mengembalikan, dan memperpanjang masa
+                peminjaman buku
+              </p>
+              <a href="#" class="category-link">Lihat Panduan</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 animate-fade-in delay-2">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <h3 class="category-title">Akun Pengguna</h3>
+              <p class="category-description">
+                Cara mendaftar, masuk, dan mengelola profil akun Anda
+              </p>
+              <a href="#" class="category-link">Lihat Panduan</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 animate-fade-in delay-3">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3 class="category-title">Pencarian Buku</h3>
+              <p class="category-description">
+                Tips dan trik untuk menemukan buku yang Anda cari dengan cepat
+              </p>
+              <a href="#" class="category-link">Lihat Panduan</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 animate-fade-in delay-3">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <h3 class="category-title">Denda & Pembayaran</h3>
+              <p class="category-description">
+                Informasi tentang denda keterlambatan dan cara pembayarannya
+              </p>
+              <a href="#" class="category-link">Lihat Panduan</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 animate-fade-in delay-4">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3 class="category-title">Aplikasi Mobile</h3>
+              <p class="category-description">
+                Panduan penggunaan aplikasi mobile CuyPerpus
+              </p>
+              <a href="#" class="category-link">Lihat Panduan</a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 animate-fade-in delay-5">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3 class="category-title">Keamanan & Privasi</h3>
+              <p class="category-description">
+                Informasi tentang keamanan data dan privasi pengguna
+              </p>
+              <a href="#" class="category-link">Lihat Panduan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title animate-fade-in">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+        <div class="faq-container">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item animate-fade-in delay-1">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Bagaimana cara meminjam buku di CuyPerpus?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  <p>
+                    Untuk meminjam buku di CuyPerpus, ikuti langkah-langkah
+                    berikut:
+                  </p>
+                  <ol>
+                    <li>Login ke akun member Anda</li>
+                    <li>
+                      Cari buku yang ingin Anda pinjam melalui menu "Daftar
+                      Buku"
+                    </li>
+                    <li>Klik tombol "Detail" pada buku yang ingin dipinjam</li>
+                    <li>Pada halaman detail buku, klik tombol "Pinjam Buku"</li>
+                    <li>
+                      Konfirmasi peminjaman dan buku akan tercatat sebagai
+                      dipinjam oleh Anda
+                    </li>
+                  </ol>
+                  <p>
+                    Batas peminjaman adalah 7 hari. Jika Anda terlambat
+                    mengembalikan, akan dikenakan denda sesuai ketentuan.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item animate-fade-in delay-2">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Bagaimana cara mendaftar sebagai member CuyPerpus?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  <p>
+                    Untuk mendaftar sebagai member CuyPerpus, ikuti
+                    langkah-langkah berikut:
+                  </p>
+                  <ol>
+                    <li>Kunjungi halaman utama CuyPerpus</li>
+                    <li>Klik tombol "Login" di menu navigasi</li>
+                    <li>
+                      Pada halaman login, pilih "Member" dan klik "Sign Up"
+                    </li>
+                    <li>
+                      Isi formulir pendaftaran dengan data diri yang valid
+                    </li>
+                    <li>
+                      Klik tombol "Daftar" untuk menyelesaikan proses
+                      pendaftaran
+                    </li>
+                  </ol>
+                  <p>
+                    Setelah berhasil mendaftar, Anda dapat langsung login
+                    menggunakan username dan password yang telah dibuat.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item animate-fade-in delay-3">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Berapa lama batas waktu peminjaman buku?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  <p>
+                    Batas waktu peminjaman buku di CuyPerpus adalah 7 hari
+                    kalender terhitung sejak tanggal peminjaman. Anda dapat
+                    memperpanjang masa peminjaman sebanyak 1 kali dengan durasi
+                    tambahan 7 hari, dengan syarat:
+                  </p>
+                  <ul>
+                    <li>
+                      Buku yang dipinjam tidak sedang dipesan oleh member lain
+                    </li>
+                    <li>Anda tidak memiliki denda yang belum dibayar</li>
+                    <li>
+                      Perpanjangan dilakukan sebelum batas waktu peminjaman
+                      berakhir
+                    </li>
+                  </ul>
+                  <p>
+                    Untuk memperpanjang masa peminjaman, kunjungi menu
+                    "Peminjaman" di dashboard member Anda dan klik tombol
+                    "Perpanjang" pada buku yang ingin diperpanjang masa
+                    peminjamannya.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item animate-fade-in delay-4">
+              <h2 class="accordion-header" id="headingFour">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  Bagaimana cara mengembalikan buku yang dipinjam?
+                </button>
+              </h2>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFour"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  <p>
+                    Untuk mengembalikan buku yang dipinjam, ikuti
+                    langkah-langkah berikut:
+                  </p>
+                  <ol>
+                    <li>Login ke akun member Anda</li>
+                    <li>Kunjungi menu "Pengembalian" di dashboard member</li>
+                    <li>
+                      Pilih buku yang ingin dikembalikan dari daftar buku yang
+                      sedang dipinjam
+                    </li>
+                    <li>Klik tombol "Kembalikan Buku"</li>
+                    <li>Konfirmasi pengembalian buku</li>
+                  </ol>
+                  <p>
+                    Jika Anda terlambat mengembalikan buku, sistem akan otomatis
+                    menghitung denda yang harus dibayarkan. Denda keterlambatan
+                    adalah Rp 1.000 per hari untuk setiap buku.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item animate-fade-in delay-5">
+              <h2 class="accordion-header" id="headingFive">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive"
+                  aria-expanded="false"
+                  aria-controls="collapseFive"
+                >
+                  Bagaimana cara membayar denda keterlambatan?
+                </button>
+              </h2>
+              <div
+                id="collapseFive"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFive"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  <p>
+                    Untuk membayar denda keterlambatan, ikuti langkah-langkah
+                    berikut:
+                  </p>
+                  <ol>
+                    <li>Login ke akun member Anda</li>
+                    <li>Kunjungi menu "Denda" di dashboard member</li>
+                    <li>Lihat daftar denda yang harus dibayar</li>
+                    <li>
+                      Klik tombol "Bayar Denda" pada denda yang ingin dibayar
+                    </li>
+                    <li>Pilih metode pembayaran yang tersedia</li>
+                    <li>
+                      Ikuti instruksi pembayaran sesuai metode yang dipilih
+                    </li>
+                  </ol>
+                  <p>
+                    Setelah pembayaran berhasil, status denda akan berubah
+                    menjadi "Lunas" dan Anda dapat kembali meminjam buku.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Tutorials -->
+    <section class="video-tutorials">
+      <div class="container">
+        <h2 class="section-title animate-fade-in">Video Tutorial</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4 animate-fade-in delay-1">
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <img
+                  src="../../assets/logoPerpus.jpg"
+                  alt="Tutorial Peminjaman Buku"
+                />
+                <div class="video-play-button">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <div class="video-info">
+                <h3 class="video-title">Cara Meminjam Buku di CuyPerpus</h3>
+                <p class="video-description">
+                  Tutorial lengkap proses peminjaman buku dari awal hingga akhir
+                </p>
+                <span class="video-duration">3:45</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 animate-fade-in delay-2">
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <img
+                  src="../../assets/logoPerpus.jpg"
+                  alt="Tutorial Pendaftaran Member"
+                />
+                <div class="video-play-button">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <div class="video-info">
+                <h3 class="video-title">Cara Mendaftar Sebagai Member</h3>
+                <p class="video-description">
+                  Panduan step-by-step untuk mendaftar sebagai member baru
+                </p>
+                <span class="video-duration">2:30</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 animate-fade-in delay-3">
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <img src="../../assets/logoPerpus.jpg" alt="Tutorial Pencarian Buku" />
+                <div class="video-play-button">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <div class="video-info">
+                <h3 class="video-title">Tips Mencari Buku dengan Cepat</h3>
+                <p class="video-description">
+                  Teknik pencarian buku yang efektif menggunakan fitur filter
+                  dan kategori
+                </p>
+                <span class="video-duration">4:15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <h2 class="section-title animate-fade-in">Hubungi Kami</h2>
+        <div class="contact-card animate-fade-in delay-1">
+          <h3 class="contact-title">Kirim Pesan</h3>
+          <form class="contact-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nama Lengkap</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Masukkan nama lengkap Anda"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Masukkan alamat email Anda"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subjek</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subject"
+                placeholder="Masukkan subjek pesan"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="message" class="form-label">Pesan</label>
+              <textarea
+                class="form-control"
+                id="message"
+                placeholder="Tulis pesan Anda di sini..."
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+            </div>
+          </form>
+
+          <div class="contact-info">
+            <h4 class="contact-info-title">Informasi Kontak</h4>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <div class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-info-text">
+                    Jl. Perpustakaan No. 123, Kota Buku, Indonesia
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div class="contact-info-text">
+                    <a href="tel:+6281234567890">+62 812-3456-7890</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-info-text">
+                    <a href="mailto:bantuan@cuyperpus.com"
+                      >bantuan@cuyperpus.com</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <img
+              src="../../assets/logoFooter.png"
+              alt="CuyPerpus Logo"
+              class="footer-logo"
+            />
+            <p class="footer-description">
+              CuyPerpus adalah sistem perpustakaan digital yang memudahkan
+              pengelolaan dan akses buku untuk semua pengguna.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4">
+            <h4 class="footer-title">Tautan</h4>
+            <ul class="footer-links">
+              <li><a href="index.php">Beranda</a></li>
+              <li><a href="sign/link_login.html">Login</a></li>
+              <li><a href="bantuan.html">Bantuan</a></li>
+              <li><a href="#">Tentang Kami</a></li>
+              <li><a href="#">Kontak</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+            <h4 class="footer-title">Layanan</h4>
+            <ul class="footer-links">
+              <li><a href="#">Peminjaman Buku</a></li>
+              <li><a href="#">Pengembalian Buku</a></li>
+              <li><a href="#">Katalog Buku</a></li>
+              <li><a href="#">Keanggotaan</a></li>
+              <li><a href="#">Perpanjangan</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+            <h4 class="footer-title">Bantuan</h4>
+            <ul class="footer-links">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Panduan Pengguna</a></li>
+              <li><a href="#">Syarat & Ketentuan</a></li>
+              <li><a href="#">Kebijakan Privasi</a></li>
+              <li><a href="#">Hubungi Kami</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copyright">Created by <span>Alpian</span> © 2025</p>
+          <div class="footer-links-bottom">
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Back to Top Button
+      const backToTopButton = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add("show");
+        } else {
+          backToTopButton.classList.remove("show");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Video Play Button
+      const videoCards = document.querySelectorAll(".video-card");
+
+      videoCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          alert("Video akan diputar di sini. Fitur ini akan segera tersedia.");
+        });
+      });
+
+      // Form Submission
+      const contactForm = document.querySelector(".contact-form");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.");
+          contactForm.reset();
+        });
+      }
+    </script>
+  </body>
+</html>
