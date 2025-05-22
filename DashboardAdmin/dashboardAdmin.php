@@ -79,6 +79,41 @@ if(!isset($_SESSION["signIn"]) ) {
         padding: 20px;
         text-align: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .close-sidebar {
+        position: absolute;
+        right: 15px;
+        top: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        opacity: 0.8;
+        display: none;
+    }
+
+    .close-sidebar:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        opacity: 1;
+    }
+
+    @media (max-width: 992px) {
+        .close-sidebar {
+            display: flex;
+        }
     }
 
     .sidebar-logo {
@@ -610,7 +645,9 @@ if(!isset($_SESSION["signIn"]) ) {
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <img src="../assets/logoNav.png" alt="CuyPerpus Logo" class="sidebar-logo">
-            <p>Sistem Perpustakaan</p>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
         <div class="sidebar-menu">
             <p class="menu-header">Menu Utama</p>
@@ -809,6 +846,7 @@ if(!isset($_SESSION["signIn"]) ) {
     <script>
     // Toggle Sidebar
     const toggleSidebar = document.getElementById('toggleSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.querySelector('.main-content');
     const topbar = document.querySelector('.topbar');
@@ -816,6 +854,21 @@ if(!isset($_SESSION["signIn"]) ) {
 
     toggleSidebar.addEventListener('click', () => {
         sidebar.classList.toggle('show');
+    });
+
+    // Close sidebar when X button is clicked
+    closeSidebar.addEventListener('click', () => {
+        sidebar.classList.remove('show');
+    });
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
+            if (!sidebar.contains(e.target) && !toggleSidebar.contains(e.target) && sidebar.classList.contains(
+                    'show')) {
+                sidebar.classList.remove('show');
+            }
+        }
     });
 
     // User Dropdown
