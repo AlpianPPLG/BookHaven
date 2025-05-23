@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syarat dan Ketentuan | CuyPerpus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./../../assets/logoUrl.png" type="image/png">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --success: #4ade80;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #f8f9fa;
+            --bg-dark: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            color: var(--text-dark) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -3px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary) !important;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Terms Section */
+        .terms-section {
+            padding: 60px 0;
+        }
+
+        .terms-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terms-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .terms-nav {
+            position: sticky;
+            top: 100px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .terms-nav-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .terms-nav-item {
+            margin-bottom: 10px;
+        }
+
+        .terms-nav-link {
+            display: block;
+            padding: 8px 15px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .terms-nav-link:hover,
+        .terms-nav-link.active {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .terms-content {
+            padding: 20px 0;
+        }
+
+        .terms-section-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-section-content {
+            margin-bottom: 40px;
+        }
+
+        .terms-section-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .terms-section-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .terms-section-content li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .terms-section-content strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .terms-date {
+            font-style: italic;
+            color: var(--gray-500);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 30px 0;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            color: #a1a1aa;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .footer-text a {
+            color: var(--accent);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            color: white;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .terms-container {
+                padding: 30px;
+            }
+
+            .terms-nav {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .terms-container {
+                padding: 25px;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .terms-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <img src="./../../assets/logoNav.png" alt="CuyPerpus Logo" width="120px">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bantuan.html">Bantuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="terms.html">Syarat & Ketentuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-3" href="sign/link_login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Syarat dan Ketentuan</h1>
+                <p class="hero-subtitle">Dokumen ini mengatur penggunaan layanan CuyPerpus. Harap baca dengan seksama sebelum menggunakan layanan kami.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Section -->
+    <section class="terms-section">
+        <div class="container">
+            <div class="terms-container">
+                <div class="row">
+                    <!-- Terms Navigation -->
+                    <div class="col-lg-3 mb-4 mb-lg-0">
+                        <div class="terms-nav animate-fade-in delay-1">
+                            <h5 class="terms-nav-title">Daftar Isi</h5>
+                            <ul class="terms-nav-list">
+                                <li class="terms-nav-item">
+                                    <a href="#introduction" class="terms-nav-link active">Pendahuluan</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#accounts" class="terms-nav-link">Akun Pengguna</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#services" class="terms-nav-link">Layanan Perpustakaan</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#borrowing" class="terms-nav-link">Peminjaman Buku</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#returns" class="terms-nav-link">Pengembalian & Denda</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#conduct" class="terms-nav-link">Kode Etik Pengguna</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#privacy" class="terms-nav-link">Kebijakan Privasi</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#intellectual" class="terms-nav-link">Hak Kekayaan Intelektual</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#liability" class="terms-nav-link">Batasan Tanggung Jawab</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#termination" class="terms-nav-link">Penghentian Akun</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#changes" class="terms-nav-link">Perubahan Ketentuan</a>
+                                </li>
+                                <li class="terms-nav-item">
+                                    <a href="#contact" class="terms-nav-link">Kontak Kami</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Terms Content -->
+                    <div class="col-lg-9">
+                        <div class="terms-content animate-fade-in delay-2">
+                            <div id="introduction" class="terms-section-content">
+                                <h3 class="terms-section-title">1. Pendahuluan</h3>
+                                <p>Selamat datang di CuyPerpus, layanan perpustakaan digital yang dikelola oleh Tim CuyPerpus. Dengan mengakses atau menggunakan layanan kami, Anda menyetujui untuk terikat oleh syarat dan ketentuan yang tercantum dalam dokumen ini.</p>
+                                <p>Syarat dan Ketentuan ini mengatur penggunaan Anda atas platform CuyPerpus, termasuk semua fitur, konten, dan layanan yang tersedia melalui domain cuyperpus.com atau aplikasi terkait.</p>
+                                <p>Harap baca dokumen ini dengan seksama sebelum menggunakan layanan kami. Jika Anda tidak setuju dengan Syarat dan Ketentuan ini, Anda tidak diperkenankan untuk menggunakan layanan CuyPerpus.</p>
+                            </div>
+
+                            <div id="accounts" class="terms-section-content">
+                                <h3 class="terms-section-title">2. Akun Pengguna</h3>
+                                <p>Untuk mengakses fitur tertentu dari layanan kami, Anda perlu membuat akun pengguna. Saat mendaftar, Anda setuju untuk memberikan informasi yang akurat, lengkap, dan terkini. Anda bertanggung jawab untuk menjaga kerahasiaan kredensial akun Anda dan semua aktivitas yang terjadi di bawah akun Anda.</p>
+                                <p><strong>Persyaratan Akun:</strong></p>
+                                <ul>
+                                    <li>Anda harus berusia minimal 13 tahun untuk membuat akun.</li>
+                                    <li>Anda harus memberikan informasi identitas yang valid dan dapat diverifikasi.</li>
+                                    <li>Satu individu hanya boleh memiliki satu akun aktif.</li>
+                                    <li>Anda tidak boleh membagikan akun Anda dengan orang lain.</li>
+                                </ul>
+                                <p>CuyPerpus berhak untuk menangguhkan atau menghentikan akun Anda jika terdapat pelanggaran terhadap Syarat dan Ketentuan ini atau jika kami mencurigai adanya aktivitas yang tidak sah.</p>
+                            </div>
+
+                            <div id="services" class="terms-section-content">
+                                <h3 class="terms-section-title">3. Layanan Perpustakaan</h3>
+                                <p>CuyPerpus menyediakan berbagai layanan perpustakaan digital, termasuk namun tidak terbatas pada:</p>
+                                <ul>
+                                    <li>Akses ke katalog buku digital dan fisik</li>
+                                    <li>Peminjaman dan pengembalian buku</li>
+                                    <li>Pencarian dan penelusuran koleksi</li>
+                                    <li>Layanan referensi dan bantuan penelitian</li>
+                                    <li>Akses ke sumber daya pendidikan</li>
+                                </ul>
+                                <p>Kami berusaha untuk menyediakan layanan yang akurat dan dapat diandalkan, namun kami tidak menjamin bahwa layanan kami akan selalu tersedia, tepat waktu, aman, atau bebas dari kesalahan.</p>
+                                <p>CuyPerpus berhak untuk mengubah, menangguhkan, atau menghentikan layanan atau bagian dari layanan kapan saja tanpa pemberitahuan sebelumnya.</p>
+                            </div>
+
+                            <div id="borrowing" class="terms-section-content">
+                                <h3 class="terms-section-title">4. Peminjaman Buku</h3>
+                                <p>Sebagai anggota terdaftar CuyPerpus, Anda dapat meminjam buku sesuai dengan kebijakan peminjaman yang berlaku:</p>
+                                <ul>
+                                    <li>Anggota dapat meminjam maksimal 3 buku dalam satu waktu.</li>
+                                    <li>Durasi peminjaman standar adalah 14 hari kalender.</li>
+                                    <li>Perpanjangan peminjaman dapat dilakukan maksimal 2 kali, dengan syarat buku tidak dipesan oleh anggota lain.</li>
+                                    <li>Untuk buku dengan permintaan tinggi, durasi peminjaman mungkin lebih singkat dan tidak dapat diperpanjang.</li>
+                                    <li>Anggota bertanggung jawab penuh atas buku yang dipinjam dan harus mengembalikannya dalam kondisi yang sama seperti saat dipinjam.</li>
+                                </ul>
+                                <p>CuyPerpus berhak untuk membatasi jumlah peminjaman atau mengubah kebijakan peminjaman kapan saja untuk memastikan akses yang adil bagi semua anggota.</p>
+                            </div>
+
+                            <div id="returns" class="terms-section-content">
+                                <h3 class="terms-section-title">5. Pengembalian & Denda</h3>
+                                <p>Semua bahan perpustakaan harus dikembalikan tepat waktu sesuai dengan tanggal jatuh tempo. Keterlambatan pengembalian akan dikenakan denda sesuai dengan kebijakan berikut:</p>
+                                <ul>
+                                    <li>Denda keterlambatan sebesar Rp 1.000 per hari per item untuk buku umum.</li>
+                                    <li>Denda keterlambatan sebesar Rp 2.000 per hari per item untuk buku referensi atau buku dengan permintaan tinggi.</li>
+                                    <li>Akun dengan denda yang belum dibayar melebihi Rp 10.000 akan diblokir sementara hingga denda dilunasi.</li>
+                                    <li>Untuk buku yang hilang atau rusak, anggota harus membayar biaya penggantian sesuai dengan harga buku ditambah biaya administrasi.</li>
+                                </ul>
+                                <p>CuyPerpus dapat memberikan pengampunan denda dalam situasi tertentu, seperti sakit yang dibuktikan dengan surat dokter atau bencana alam, atas kebijakan penuh dari manajemen perpustakaan.</p>
+                            </div>
+
+                            <div id="conduct" class="terms-section-content">
+                                <h3 class="terms-section-title">6. Kode Etik Pengguna</h3>
+                                <p>Sebagai pengguna CuyPerpus, Anda setuju untuk:</p>
+                                <ul>
+                                    <li>Menggunakan layanan dengan cara yang sah dan sesuai dengan tujuan yang dimaksudkan.</li>
+                                    <li>Tidak mengganggu atau mencoba mengganggu fungsi normal dari platform.</li>
+                                    <li>Tidak melakukan tindakan yang dapat membahayakan, menonaktifkan, membebani, atau merusak server atau jaringan kami.</li>
+                                    <li>Tidak mencoba untuk mendapatkan akses tidak sah ke bagian mana pun dari layanan, akun pengguna lain, atau sistem komputer atau jaringan yang terhubung dengan layanan kami.</li>
+                                    <li>Tidak menggunakan layanan untuk menyebarkan konten yang melanggar hukum, merugikan, mengancam, kasar, melecehkan, memfitnah, vulgar, cabul, atau tidak pantas.</li>
+                                    <li>Menghormati hak kekayaan intelektual dan tidak menyebarkan materi yang dilindungi hak cipta tanpa izin.</li>
+                                </ul>
+                                <p>Pelanggaran terhadap kode etik ini dapat mengakibatkan penangguhan atau penghentian akun Anda.</p>
+                            </div>
+
+                            <div id="privacy" class="terms-section-content">
+                                <h3 class="terms-section-title">7. Kebijakan Privasi</h3>
+                                <p>Privasi Anda penting bagi kami. Kebijakan Privasi kami menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda saat Anda menggunakan layanan kami.</p>
+                                <p>Dengan menggunakan CuyPerpus, Anda menyetujui pengumpulan dan penggunaan informasi sesuai dengan Kebijakan Privasi kami, yang mencakup:</p>
+                                <ul>
+                                    <li>Informasi yang kami kumpulkan dan bagaimana kami menggunakannya.</li>
+                                    <li>Bagaimana kami menyimpan dan melindungi data Anda.</li>
+                                    <li>Hak Anda terkait data pribadi.</li>
+                                    <li>Penggunaan cookie dan teknologi pelacakan serupa.</li>
+                                </ul>
+                                <p>Kami tidak akan menjual atau menyewakan informasi pribadi Anda kepada pihak ketiga untuk tujuan pemasaran tanpa persetujuan eksplisit dari Anda.</p>
+                            </div>
+
+                            <div id="intellectual" class="terms-section-content">
+                                <h3 class="terms-section-title">8. Hak Kekayaan Intelektual</h3>
+                                <p>Semua konten yang tersedia melalui layanan CuyPerpus, termasuk tetapi tidak terbatas pada teks, grafik, logo, ikon, gambar, klip audio, unduhan digital, dan kompilasi data, adalah milik CuyPerpus atau pemberi lisensinya dan dilindungi oleh hukum hak cipta Indonesia dan internasional.</p>
+                                <p>Anda tidak diperbolehkan untuk:</p>
+                                <ul>
+                                    <li>Mereproduksi, mendistribusikan, menampilkan, atau menjual konten apa pun dari layanan kami tanpa izin tertulis sebelumnya.</li>
+                                    <li>Menggunakan konten untuk tujuan komersial tanpa lisensi yang sesuai.</li>
+                                    <li>Menghapus atau mengubah pemberitahuan hak cipta, merek dagang, atau hak kepemilikan lainnya dari materi apa pun yang Anda unduh atau gunakan dari layanan kami.</li>
+                                </ul>
+                                <p>CuyPerpus menghormati hak kekayaan intelektual orang lain dan mengharapkan pengguna kami untuk melakukan hal yang sama.</p>
+                            </div>
+
+                            <div id="liability" class="terms-section-content">
+                                <h3 class="terms-section-title">9. Batasan Tanggung Jawab</h3>
+                                <p>Sejauh diizinkan oleh hukum yang berlaku, CuyPerpus dan afiliasinya tidak bertanggung jawab atas:</p>
+                                <ul>
+                                    <li>Kerugian langsung, tidak langsung, insidental, khusus, konsekuensial, atau punitif yang timbul dari penggunaan atau ketidakmampuan untuk menggunakan layanan kami.</li>
+                                    <li>Kesalahan, ketidakakuratan, atau kelalaian dalam konten yang disediakan.</li>
+                                    <li>Kerusakan pada perangkat elektronik Anda yang timbul dari penggunaan layanan kami.</li>
+                                    <li>Gangguan atau penghentian layanan karena pemeliharaan, pembaruan, atau faktor di luar kendali kami.</li>
+                                </ul>
+                                <p>Dalam hal apa pun, total tanggung jawab CuyPerpus kepada Anda untuk semua kerugian, kerusakan, dan penyebab tindakan tidak akan melebihi jumlah yang telah Anda bayarkan kepada kami, jika ada, untuk mengakses layanan selama 12 bulan sebelum klaim atau Rp 500.000, mana yang lebih kecil.</p>
+                            </div>
+
+                            <div id="termination" class="terms-section-content">
+                                <h3 class="terms-section-title">10. Penghentian Akun</h3>
+                                <p>CuyPerpus berhak untuk menangguhkan atau menghentikan akun Anda dan akses ke layanan kami kapan saja, dengan atau tanpa pemberitahuan, untuk alasan apa pun, termasuk namun tidak terbatas pada pelanggaran Syarat dan Ketentuan ini.</p>
+                                <p>Alasan penghentian akun dapat mencakup:</p>
+                                <ul>
+                                    <li>Pelanggaran berulang terhadap kebijakan peminjaman atau pengembalian.</li>
+                                    <li>Denda yang belum dibayar dalam jumlah signifikan.</li>
+                                    <li>Penyalahgunaan layanan atau platform.</li>
+                                    <li>Memberikan informasi palsu atau menyesatkan.</li>
+                                    <li>Perilaku yang mengganggu pengguna lain atau staf perpustakaan.</li>
+                                </ul>
+                                <p>Anda juga dapat menghentikan akun Anda kapan saja dengan menghubungi layanan pelanggan kami, dengan catatan bahwa semua kewajiban yang tertunda (seperti pengembalian buku atau pembayaran denda) harus diselesaikan terlebih dahulu.</p>
+                            </div>
+
+                            <div id="changes" class="terms-section-content">
+                                <h3 class="terms-section-title">11. Perubahan Ketentuan</h3>
+                                <p>CuyPerpus berhak untuk mengubah, memodifikasi, atau merevisi Syarat dan Ketentuan ini kapan saja atas kebijakan kami sendiri. Perubahan tersebut akan efektif segera setelah diposting di platform kami.</p>
+                                <p>Kami akan memberikan pemberitahuan yang wajar tentang perubahan signifikan, yang dapat mencakup:</p>
+                                <ul>
+                                    <li>Pemberitahuan melalui email ke alamat yang terkait dengan akun Anda.</li>
+                                    <li>Pengumuman yang menonjol di situs web atau aplikasi kami.</li>
+                                    <li>Pembaruan tanggal "Terakhir Diperbarui" di bagian atas Syarat dan Ketentuan.</li>
+                                </ul>
+                                <p>Penggunaan berkelanjutan Anda atas layanan kami setelah perubahan tersebut merupakan penerimaan Anda terhadap Syarat dan Ketentuan yang direvisi.</p>
+                            </div>
+
+                            <div id="contact" class="terms-section-content">
+                                <h3 class="terms-section-title">12. Kontak Kami</h3>
+                                <p>Jika Anda memiliki pertanyaan, kekhawatiran, atau umpan balik tentang Syarat dan Ketentuan ini atau layanan kami secara umum, silakan hubungi kami melalui:</p>
+                                <ul>
+                                    <li>Email: <strong>info@cuyperpus.com</strong></li>
+                                    <li>Telepon: <strong>(021) 1234-5678</strong></li>
+                                    <li>Alamat: <strong>Jl. Pelta 2 Sulstan Sulaiman, Samarinda, Kalimantan Timur</strong></li>
+                                </ul>
+                                <p>Tim layanan pelanggan kami tersedia Senin hingga Jumat, pukul 08.00 - 16.00 WIB, dan akan merespons pertanyaan Anda sesegera mungkin.</p>
+                            </div>
+
+                            <p class="terms-date">Terakhir diperbarui: 23 Mei 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                &copy; 2025 <a href="index.php">CuyPerpus</a>. Made with <i class="fas fa-heart text-danger"></i> by <a href="#">Alpian</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('.terms-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.terms-nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.terms-section-content');
+            const navLinks = document.querySelectorAll('.terms-nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
