@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Cookie | CuyPerpus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logoUrl.png" type="image/png">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --cookie: #f59e0b;
+            --cookie-light: #fbbf24;
+            --cookie-dark: #d97706;
+            --success: #4ade80;
+            --danger: #ef4444;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #f8f9fa;
+            --bg-dark: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            color: var(--text-dark) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -3px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary) !important;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--cookie) 0%, var(--cookie-light) 100%);
+            color: white;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* Cookie Section */
+        .cookie-section {
+            padding: 60px 0;
+        }
+
+        .cookie-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cookie-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--cookie), var(--cookie-light));
+        }
+
+        .cookie-nav {
+            position: sticky;
+            top: 100px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .cookie-nav-title {
+            font-weight: 600;
+            color: var(--cookie-dark);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cookie-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cookie-nav-item {
+            margin-bottom: 10px;
+        }
+
+        .cookie-nav-link {
+            display: block;
+            padding: 8px 15px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cookie-nav-link:hover,
+        .cookie-nav-link.active {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--cookie-dark);
+            transform: translateX(5px);
+        }
+
+        .cookie-content {
+            padding: 20px 0;
+        }
+
+        .cookie-section-title {
+            color: var(--cookie-dark);
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cookie-section-content {
+            margin-bottom: 40px;
+        }
+
+        .cookie-section-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .cookie-section-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .cookie-section-content li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .cookie-section-content strong {
+            color: var(--cookie-dark);
+            font-weight: 600;
+        }
+
+        .cookie-highlight {
+            background-color: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--cookie);
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .cookie-highlight h6 {
+            color: var(--cookie-dark);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .cookie-table th {
+            background-color: var(--cookie);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .cookie-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cookie-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .cookie-date {
+            font-style: italic;
+            color: var(--gray-500);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--cookie);
+            transition: all 0.3s ease;
+        }
+
+        .cookie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cookie-card-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(245, 158, 11, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cookie);
+        }
+
+        .cookie-card-title {
+            font-weight: 600;
+            color: var(--cookie-dark);
+            margin-bottom: 0;
+        }
+
+        .cookie-card-content {
+            color: var(--text-dark);
+        }
+
+        .browser-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .browser-tab {
+            padding: 10px 15px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .browser-tab.active {
+            background-color: var(--cookie);
+            color: white;
+        }
+
+        .browser-content {
+            display: none;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .browser-content.active {
+            display: block;
+        }
+
+        .browser-content h5 {
+            margin-bottom: 15px;
+            color: var(--cookie-dark);
+        }
+
+        .browser-content ol {
+            padding-left: 20px;
+        }
+
+        .browser-content li {
+            margin-bottom: 10px;
+        }
+
+        .browser-content img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--cookie) 0%, var(--cookie-light) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-card h5 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--cookie);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--cookie-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 30px 0;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            color: #a1a1aa;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .footer-text a {
+            color: var(--accent);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            color: white;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Cookie Animation */
+        @keyframes cookieBite {
+            0% {
+                transform: rotate(0deg);
+            }
+            15% {
+                transform: rotate(-15deg);
+            }
+            30% {
+                transform: rotate(0deg);
+            }
+            45% {
+                transform: rotate(15deg);
+            }
+            60% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .cookie-animation {
+            animation: cookieBite 3s ease infinite;
+            display: inline-block;
+            transform-origin: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .cookie-container {
+                padding: 30px;
+            }
+
+            .cookie-nav {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-icon {
+                font-size: 3rem;
+            }
+
+            .cookie-container {
+                padding: 25px;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .cookie-table {
+                font-size: 0.9rem;
+            }
+
+            .cookie-table th,
+            .cookie-table td {
+                padding: 10px;
+            }
+
+            .browser-tabs {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .cookie-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <img src="assets/logoNav.png" alt="CuyPerpus Logo" width="120px">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bantuan.html">Bantuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="terms.html">Syarat & Ketentuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="privacy.html">Kebijakan Privasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cookie.html">Kebijakan Cookie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-3" href="sign/link_login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <div class="hero-icon">
+                    <span class="cookie-animation"><i class="fas fa-cookie-bite"></i></span>
+                </div>
+                <h1 class="hero-title">Kebijakan Cookie</h1>
+                <p class="hero-subtitle">Pelajari bagaimana kami menggunakan cookie dan teknologi pelacakan serupa untuk meningkatkan pengalaman Anda di CuyPerpus.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookie Section -->
+    <section class="cookie-section">
+        <div class="container">
+            <div class="cookie-container">
+                <div class="row">
+                    <!-- Cookie Navigation -->
+                    <div class="col-lg-3 mb-4 mb-lg-0">
+                        <div class="cookie-nav animate-fade-in delay-1">
+                            <h5 class="cookie-nav-title">
+                                <i class="fas fa-list"></i>
+                                Daftar Isi
+                            </h5>
+                            <ul class="cookie-nav-list">
+                                <li class="cookie-nav-item">
+                                    <a href="#introduction" class="cookie-nav-link active">Pendahuluan</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#what-are-cookies" class="cookie-nav-link">Apa itu Cookie?</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#types" class="cookie-nav-link">Jenis Cookie</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#our-cookies" class="cookie-nav-link">Cookie yang Kami Gunakan</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#third-party" class="cookie-nav-link">Cookie Pihak Ketiga</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#manage" class="cookie-nav-link">Mengelola Cookie</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#browser-settings" class="cookie-nav-link">Pengaturan Browser</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#consent" class="cookie-nav-link">Persetujuan Cookie</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#changes" class="cookie-nav-link">Perubahan Kebijakan</a>
+                                </li>
+                                <li class="cookie-nav-item">
+                                    <a href="#contact" class="cookie-nav-link">Kontak Kami</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Cookie Content -->
+                    <div class="col-lg-9">
+                        <div class="cookie-content animate-fade-in delay-2">
+                            <div id="introduction" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-info-circle"></i>
+                                    1. Pendahuluan
+                                </h3>
+                                <p>Selamat datang di Kebijakan Cookie CuyPerpus. Dokumen ini menjelaskan bagaimana kami menggunakan cookie dan teknologi pelacakan serupa saat Anda mengunjungi website dan aplikasi kami.</p>
+                                <p>Kebijakan Cookie ini merupakan bagian dari Kebijakan Privasi kami dan menjelaskan secara detail tentang cookie yang kami gunakan, tujuan penggunaannya, dan bagaimana Anda dapat mengelola preferensi cookie Anda.</p>
+                                
+                                <div class="cookie-highlight">
+                                    <h6><i class="fas fa-lightbulb me-2"></i>Mengapa Kami Memiliki Kebijakan Cookie?</h6>
+                                    <p class="mb-0">Kami berkomitmen untuk transparansi tentang bagaimana kami mengumpulkan dan menggunakan data. Cookie membantu kami memberikan, melindungi, dan meningkatkan layanan kami, tetapi kami juga ingin Anda memahami hak dan pilihan Anda terkait cookie.</p>
+                                </div>
+                            </div>
+
+                            <div id="what-are-cookies" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-cookie"></i>
+                                    2. Apa itu Cookie?
+                                </h3>
+                                <p>Cookie adalah file teks kecil yang disimpan di perangkat Anda (komputer, tablet, atau ponsel) saat Anda mengunjungi sebuah website. Cookie membantu website mengingat preferensi dan aktivitas Anda, sehingga dapat meningkatkan pengalaman pengguna.</p>
+                                
+                                <h5><strong>2.1 Cara Kerja Cookie</strong></h5>
+                                <p>Cookie bekerja dengan cara berikut:</p>
+                                <ul>
+                                    <li>Saat Anda mengunjungi website, server mengirimkan cookie ke browser Anda</li>
+                                    <li>Browser menyimpan cookie di perangkat Anda</li>
+                                    <li>Setiap kali Anda kembali ke website yang sama, browser mengirimkan cookie kembali ke server</li>
+                                    <li>Ini memungkinkan server untuk mengenali perangkat Anda dan "mengingat" aktivitas sebelumnya</li>
+                                </ul>
+
+                                <h5><strong>2.2 Informasi yang Disimpan Cookie</strong></h5>
+                                <p>Cookie dapat menyimpan berbagai jenis informasi, seperti:</p>
+                                <ul>
+                                    <li>Pengaturan bahasa dan tampilan yang Anda pilih</li>
+                                    <li>Status login Anda</li>
+                                    <li>Item yang Anda simpan di keranjang atau daftar keinginan</li>
+                                    <li>Halaman yang Anda kunjungi dan berapa lama Anda berada di sana</li>
+                                    <li>Informasi yang Anda isi di formulir</li>
+                                </ul>
+
+                                <div class="cookie-highlight">
+                                    <h6><i class="fas fa-shield-alt me-2"></i>Keamanan Cookie</h6>
+                                    <p class="mb-0">Cookie tidak dapat mengakses, membaca, atau memodifikasi data lain di komputer Anda. Selain itu, data yang disimpan dalam cookie tidak dapat dikaitkan dengan informasi pribadi Anda tanpa persetujuan Anda.</p>
+                                </div>
+                            </div>
+
+                            <div id="types" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-tags"></i>
+                                    3. Jenis Cookie
+                                </h3>
+                                <p>Cookie dapat diklasifikasikan berdasarkan beberapa kriteria:</p>
+
+                                <h5><strong>3.1 Berdasarkan Durasi</strong></h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-hourglass-start"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie Sesi</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Hanya aktif selama Anda mengunjungi website dan dihapus ketika Anda menutup browser. Digunakan untuk fungsi sementara seperti menjaga item di keranjang belanja.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-hourglass-end"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie Persisten</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Tetap di perangkat Anda untuk jangka waktu tertentu (dari beberapa menit hingga beberapa tahun). Digunakan untuk mengingat preferensi dan login Anda.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5><strong>3.2 Berdasarkan Sumber</strong></h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-home"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie First-Party</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Ditetapkan oleh website yang Anda kunjungi (dalam hal ini, CuyPerpus). Digunakan untuk meningkatkan pengalaman pengguna di website kami.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie Third-Party</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Ditetapkan oleh domain selain yang Anda kunjungi. Digunakan untuk layanan pihak ketiga seperti analitik, iklan, atau widget media sosial.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5><strong>3.3 Berdasarkan Tujuan</strong></h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-cogs"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie Esensial</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Diperlukan agar website dapat berfungsi dengan baik. Memungkinkan navigasi dan fitur dasar seperti akses ke area aman.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-sliders-h"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie Preferensi</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Memungkinkan website mengingat informasi yang mengubah tampilan atau perilaku website, seperti bahasa pilihan atau region.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-chart-bar"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie Statistik</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Membantu pemilik website memahami bagaimana pengunjung berinteraksi dengan website dengan mengumpulkan dan melaporkan informasi secara anonim.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="cookie-card">
+                                            <div class="cookie-card-header">
+                                                <div class="cookie-card-icon">
+                                                    <i class="fas fa-bullhorn"></i>
+                                                </div>
+                                                <h5 class="cookie-card-title">Cookie Marketing</h5>
+                                            </div>
+                                            <div class="cookie-card-content">
+                                                <p>Digunakan untuk melacak pengunjung di seluruh website. Tujuannya adalah untuk menampilkan iklan yang relevan dan menarik bagi pengguna individual.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="our-cookies" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-list-alt"></i>
+                                    4. Cookie yang Kami Gunakan
+                                </h3>
+                                <p>Di CuyPerpus, kami menggunakan berbagai cookie untuk meningkatkan pengalaman pengguna dan memastikan website kami berfungsi dengan baik:</p>
+
+                                <h5><strong>4.1 Cookie Esensial</strong></h5>
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Cookie</th>
+                                            <th>Tujuan</th>
+                                            <th>Durasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>PHPSESSID</td>
+                                            <td>Menyimpan status sesi pengguna</td>
+                                            <td>Sesi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>cuyperpus_auth</td>
+                                            <td>Menyimpan informasi autentikasi</td>
+                                            <td>30 hari</td>
+                                        </tr>
+                                        <tr>
+                                            <td>cuyperpus_csrf</td>
+                                            <td>Melindungi dari serangan CSRF</td>
+                                            <td>Sesi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>cookie_consent</td>
+                                            <td>Menyimpan preferensi cookie Anda</td>
+                                            <td>1 tahun</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h5><strong>4.2 Cookie Preferensi</strong></h5>
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Cookie</th>
+                                            <th>Tujuan</th>
+                                            <th>Durasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>language</td>
+                                            <td>Menyimpan preferensi bahasa</td>
+                                            <td>1 tahun</td>
+                                        </tr>
+                                        <tr>
+                                            <td>theme_mode</td>
+                                            <td>Menyimpan preferensi tema (terang/gelap)</td>
+                                            <td>1 tahun</td>
+                                        </tr>
+                                        <tr>
+                                            <td>font_size</td>
+                                            <td>Menyimpan preferensi ukuran font</td>
+                                            <td>1 tahun</td>
+                                        </tr>
+                                        <tr>
+                                            <td>sidebar:state</td>
+                                            <td>Menyimpan status sidebar (terbuka/tertutup)</td>
+                                            <td>7 hari</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h5><strong>4.3 Cookie Statistik</strong></h5>
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Cookie</th>
+                                            <th>Tujuan</th>
+                                            <th>Durasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>_ga</td>
+                                            <td>Digunakan oleh Google Analytics untuk membedakan pengguna</td>
+                                            <td>2 tahun</td>
+                                        </tr>
+                                        <tr>
+                                            <td>_gid</td>
+                                            <td>Digunakan oleh Google Analytics untuk membedakan pengguna</td>
+                                            <td>24 jam</td>
+                                        </tr>
+                                        <tr>
+                                            <td>_gat</td>
+                                            <td>Digunakan oleh Google Analytics untuk membatasi tingkat permintaan</td>
+                                            <td>1 menit</td>
+                                        </tr>
+                                        <tr>
+                                            <td>cuyperpus_analytics</td>
+                                            <td>Melacak halaman yang dikunjungi dan interaksi di website kami</td>
+                                            <td>30 hari</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h5><strong>4.4 Cookie Fungsional</strong></h5>
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Cookie</th>
+                                            <th>Tujuan</th>
+                                            <th>Durasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>recently_viewed</td>
+                                            <td>Menyimpan buku yang baru dilihat</td>
+                                            <td>30 hari</td>
+                                        </tr>
+                                        <tr>
+                                            <td>reading_history</td>
+                                            <td>Melacak progres membaca</td>
+                                            <td>90 hari</td>
+                                        </tr>
+                                        <tr>
+                                            <td>book_preferences</td>
+                                            <td>Menyimpan preferensi kategori buku</td>
+                                            <td>180 hari</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="third-party" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-handshake"></i>
+                                    5. Cookie Pihak Ketiga
+                                </h3>
+                                <p>Selain cookie yang kami tetapkan, beberapa cookie pihak ketiga mungkin ditetapkan di perangkat Anda saat Anda mengunjungi website kami. Ini memungkinkan layanan pihak ketiga untuk mengumpulkan informasi tentang penggunaan Anda:</p>
+
+                                <h5><strong>5.1 Analitik dan Pengukuran</strong></h5>
+                                <ul>
+                                    <li><strong>Google Analytics:</strong> Membantu kami menganalisis bagaimana pengguna menggunakan website kami</li>
+                                    <li><strong>Hotjar:</strong> Memberikan wawasan tentang perilaku pengguna dan umpan balik</li>
+                                </ul>
+
+                                <h5><strong>5.2 Media Sosial</strong></h5>
+                                <ul>
+                                    <li><strong>Facebook Pixel:</strong> Memungkinkan kami mengukur efektivitas iklan dan memahami tindakan yang dilakukan di website kami</li>
+                                    <li><strong>Twitter:</strong> Memungkinkan Anda berbagi konten melalui Twitter dan melacak interaksi</li>
+                                    <li><strong>Instagram:</strong> Memungkinkan integrasi dengan konten Instagram</li>
+                                </ul>
+
+                                <h5><strong>5.3 Konten Tertanam</strong></h5>
+                                <ul>
+                                    <li><strong>YouTube:</strong> Memungkinkan kami menyematkan video dari YouTube</li>
+                                    <li><strong>Google Maps:</strong> Memungkinkan kami menampilkan peta interaktif</li>
+                                    <li><strong>Disqus:</strong> Menyediakan sistem komentar untuk ulasan buku</li>
+                                </ul>
+
+                                <div class="cookie-highlight">
+                                    <h6><i class="fas fa-exclamation-triangle me-2"></i>Penting untuk Diketahui</h6>
+                                    <p class="mb-0">Cookie pihak ketiga dikendalikan oleh penyedia masing-masing, bukan oleh CuyPerpus. Kami menyarankan Anda untuk memeriksa kebijakan privasi dan cookie dari pihak ketiga tersebut untuk informasi lebih lanjut tentang bagaimana mereka menggunakan cookie.</p>
+                                </div>
+                            </div>
+
+                            <div id="manage" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-sliders-h"></i>
+                                    6. Mengelola Cookie
+                                </h3>
+                                <p>Anda memiliki hak untuk memilih apakah akan menerima atau menolak cookie. Berikut adalah beberapa cara untuk mengelola cookie:</p>
+
+                                <h5><strong>6.1 Melalui Panel Preferensi Cookie Kami</strong></h5>
+                                <p>Anda dapat mengubah preferensi cookie Anda kapan saja melalui panel preferensi cookie kami:</p>
+                                <ul>
+                                    <li>Klik tombol "Pengaturan Cookie" di footer website kami</li>
+                                    <li>Pilih kategori cookie yang ingin Anda izinkan atau tolak</li>
+                                    <li>Simpan preferensi Anda</li>
+                                </ul>
+                                <p>Perhatikan bahwa cookie esensial tidak dapat dinonaktifkan karena diperlukan agar website dapat berfungsi dengan baik.</p>
+
+                                <h5><strong>6.2 Melalui Pengaturan Browser</strong></h5>
+                                <p>Sebagian besar browser web memungkinkan Anda untuk mengontrol cookie melalui pengaturan browser Anda. Ini biasanya ditemukan di menu "Opsi", "Preferensi" atau "Pengaturan" browser Anda.</p>
+                                <p>Perhatikan bahwa jika Anda memilih untuk memblokir cookie, beberapa bagian website kami mungkin tidak berfungsi dengan baik.</p>
+
+                                <h5><strong>6.3 Melalui Alat Pihak Ketiga</strong></h5>
+                                <p>Anda juga dapat menggunakan alat pihak ketiga untuk mengelola preferensi cookie Anda:</p>
+                                <ul>
+                                    <li><a href="https://www.youronlinechoices.com/" target="_blank">Your Online Choices</a></li>
+                                    <li><a href="https://optout.aboutads.info/" target="_blank">Digital Advertising Alliance</a></li>
+                                    <li><a href="https://optout.networkadvertising.org/" target="_blank">Network Advertising Initiative</a></li>
+                                </ul>
+                            </div>
+
+                            <div id="browser-settings" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-globe"></i>
+                                    7. Pengaturan Cookie di Browser
+                                </h3>
+                                <p>Berikut adalah panduan cara mengelola cookie di browser populer:</p>
+
+                                <div class="browser-tabs">
+                                    <div class="browser-tab active" data-browser="chrome">Google Chrome</div>
+                                    <div class="browser-tab" data-browser="firefox">Mozilla Firefox</div>
+                                    <div class="browser-tab" data-browser="safari">Safari</div>
+                                    <div class="browser-tab" data-browser="edge">Microsoft Edge</div>
+                                    <div class="browser-tab" data-browser="opera">Opera</div>
+                                </div>
+
+                                <div class="browser-content active" id="chrome-content">
+                                    <h5>Mengelola Cookie di Google Chrome</h5>
+                                    <ol>
+                                        <li>Klik menu tiga titik di pojok kanan atas browser</li>
+                                        <li>Pilih "Pengaturan"</li>
+                                        <li>Scroll ke bawah dan klik "Privasi dan keamanan"</li>
+                                        <li>Klik "Cookie dan data situs lainnya"</li>
+                                        <li>Di sini Anda dapat:
+                                            <ul>
+                                                <li>Memblokir semua cookie</li>
+                                                <li>Memblokir cookie pihak ketiga</li>
+                                                <li>Menghapus cookie yang ada</li>
+                                                <li>Mengelola pengecualian untuk situs tertentu</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="browser-content" id="firefox-content">
+                                    <h5>Mengelola Cookie di Mozilla Firefox</h5>
+                                    <ol>
+                                        <li>Klik menu tiga garis di pojok kanan atas browser</li>
+                                        <li>Pilih "Opsi" (Windows) atau "Preferensi" (Mac)</li>
+                                        <li>Pilih panel "Privasi & Keamanan"</li>
+                                        <li>Di bagian "Cookie dan Data Situs", Anda dapat:
+                                            <ul>
+                                                <li>Memilih "Standar" untuk memblokir cookie pelacak pihak ketiga</li>
+                                                <li>Memilih "Ketat" untuk memblokir semua cookie pihak ketiga</li>
+                                                <li>Memilih "Kustom" untuk pengaturan yang lebih spesifik</li>
+                                                <li>Menghapus cookie yang ada dengan mengklik "Hapus Data"</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="browser-content" id="safari-content">
+                                    <h5>Mengelola Cookie di Safari</h5>
+                                    <ol>
+                                        <li>Klik "Safari" di menu atas</li>
+                                        <li>Pilih "Preferensi"</li>
+                                        <li>Pilih tab "Privasi"</li>
+                                        <li>Di bagian "Cookie dan data website", Anda dapat:
+                                            <ul>
+                                                <li>Memblokir semua cookie</li>
+                                                <li>Hanya memblokir cookie pihak ketiga</li>
+                                                <li>Menghapus cookie yang ada dengan mengklik "Kelola Data Website"</li>
+                                            </ul>
+                                        </li>
+                                        <li>Untuk pengaturan lebih lanjut, klik "Detail" untuk situs tertentu</li>
+                                    </ol>
+                                </div>
+
+                                <div class="browser-content" id="edge-content">
+                                    <h5>Mengelola Cookie di Microsoft Edge</h5>
+                                    <ol>
+                                        <li>Klik menu tiga titik di pojok kanan atas browser</li>
+                                        <li>Pilih "Pengaturan"</li>
+                                        <li>Klik "Cookie dan izin situs" di bawah "Privasi, pencarian, dan layanan"</li>
+                                        <li>Di sini Anda dapat:
+                                            <ul>
+                                                <li>Mengelola bagaimana cookie disimpan</li>
+                                                <li>Melihat semua cookie dan menghapusnya</li>
+                                                <li>Memblokir cookie pihak ketiga</li>
+                                                <li>Mengelola pengecualian untuk situs tertentu</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="browser-content" id="opera-content">
+                                    <h5>Mengelola Cookie di Opera</h5>
+                                    <ol>
+                                        <li>Klik "Opera" di pojok kiri atas (Mac) atau menu Opera (Windows)</li>
+                                        <li>Pilih "Preferensi" (Mac) atau "Pengaturan" (Windows)</li>
+                                        <li>Pilih "Privasi & keamanan" di sidebar</li>
+                                        <li>Di bagian "Cookie", Anda dapat:
+                                            <ul>
+                                                <li>Memilih untuk menerima semua cookie</li>
+                                                <li>Memblokir cookie pihak ketiga</li>
+                                                <li>Memblokir semua cookie</li>
+                                                <li>Mengelola pengecualian untuk situs tertentu</li>
+                                            </ul>
+                                        </li>
+                                        <li>Untuk menghapus cookie yang ada, klik "Hapus data browsing"</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div id="consent" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    8. Persetujuan Cookie
+                                </h3>
+                                <p>Saat pertama kali mengunjungi website kami, Anda akan melihat banner cookie yang memberi tahu Anda tentang penggunaan cookie di website kami.</p>
+
+                                <h5><strong>8.1 Cara Kami Mendapatkan Persetujuan</strong></h5>
+                                <ul>
+                                    <li>Banner cookie akan muncul saat pertama kali Anda mengunjungi website kami</li>
+                                    <li>Anda dapat memilih untuk menerima semua cookie atau menyesuaikan preferensi Anda</li>
+                                    <li>Jika Anda mengklik "Terima Semua", Anda memberikan persetujuan untuk semua cookie</li>
+                                    <li>Jika Anda mengklik "Sesuaikan Preferensi", Anda dapat memilih kategori cookie yang ingin Anda terima</li>
+                                    <li>Anda dapat mengubah preferensi Anda kapan saja melalui link "Pengaturan Cookie" di footer website</li>
+                                </ul>
+
+                                <h5><strong>8.2 Menarik Persetujuan</strong></h5>
+                                <p>Anda dapat menarik persetujuan Anda kapan saja dengan cara berikut:</p>
+                                <ul>
+                                    <li>Mengklik link "Pengaturan Cookie" di footer website</li>
+                                    <li>Mengubah pengaturan browser Anda untuk menolak cookie</li>
+                                    <li>Menghapus cookie yang sudah ada di browser Anda</li>
+                                </ul>
+
+                                <div class="cookie-highlight">
+                                    <h6><i class="fas fa-info-circle me-2"></i>Perhatian</h6>
+                                    <p class="mb-0">Jika Anda menarik persetujuan untuk cookie tertentu, itu tidak akan memengaruhi legalitas pemrosesan berdasarkan persetujuan Anda sebelum penarikan.</p>
+                                </div>
+                            </div>
+
+                            <div id="changes" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-edit"></i>
+                                    9. Perubahan Kebijakan Cookie
+                                </h3>
+                                <p>Kami dapat memperbarui Kebijakan Cookie ini dari waktu ke waktu untuk mencerminkan perubahan dalam praktik kami atau untuk alasan operasional, hukum, atau peraturan lainnya.</p>
+
+                                <h5><strong>9.1 Pemberitahuan Perubahan</strong></h5>
+                                <ul>
+                                    <li>Kami akan memposting versi terbaru di website kami</li>
+                                    <li>Tanggal "Terakhir Diperbarui" di bagian bawah halaman akan diperbarui</li>
+                                    <li>Untuk perubahan signifikan, kami mungkin memberikan pemberitahuan tambahan, seperti banner di website atau email</li>
+                                    <li>Kami mungkin meminta persetujuan Anda lagi jika ada perubahan material dalam cara kami menggunakan cookie</li>
+                                </ul>
+
+                                <h5><strong>9.2 Riwayat Perubahan</strong></h5>
+                                <table class="cookie-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tanggal</th>
+                                            <th>Versi</th>
+                                            <th>Perubahan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>23 Mei 2025</td>
+                                            <td>1.0</td>
+                                            <td>Kebijakan Cookie awal</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="contact" class="cookie-section-content">
+                                <h3 class="cookie-section-title">
+                                    <i class="fas fa-envelope"></i>
+                                    10. Kontak Kami
+                                </h3>
+                                <p>Jika Anda memiliki pertanyaan atau kekhawatiran tentang Kebijakan Cookie kami atau penggunaan cookie di website kami, jangan ragu untuk menghubungi kami:</p>
+
+                                <div class="contact-card">
+                                    <h5><i class="fas fa-cookie-bite me-2"></i>Tim Privasi CuyPerpus</h5>
+                                    <p><strong>Email:</strong> <a href="mailto:privacy@cuyperpus.com">privacy@cuyperpus.com</a></p>
+                                    <p><strong>Telepon:</strong> <a href="tel:+622112345678">(021) 1234-5678</a></p>
+                                    <p><strong>Alamat:</strong> Jl. Pelta 2 Sulstan Sulaiman, Samarinda, Kalimantan Timur</p>
+                                    <p class="mb-0"><strong>Jam Operasional:</strong> Senin - Jumat, 08:00 - 16:00 WIB</p>
+                                </div>
+
+                                <p>Kami akan merespons pertanyaan atau kekhawatiran Anda dalam waktu 7 hari kerja.</p>
+                            </div>
+
+                            <p class="cookie-date">Terakhir diperbarui: 23 Mei 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                &copy; 2025 <a href="index.php">CuyPerpus</a>. Made with <i class="fas fa-heart text-danger"></i> by <a href="#">Alpian</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('.cookie-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.cookie-nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.cookie-section-content');
+            const navLinks = document.querySelectorAll('.cookie-nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Browser tabs functionality
+        const browserTabs = document.querySelectorAll('.browser-tab');
+        const browserContents = document.querySelectorAll('.browser-content');
+
+        browserTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                browserTabs.forEach(t => t.classList.remove('active'));
+                browserContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const browser = tab.getAttribute('data-browser');
+                document.getElementById(`${browser}-content`).classList.add('active');
+            });
+        });
+
+        // Add smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cookie section content
+        document.querySelectorAll('.cookie-section-content').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

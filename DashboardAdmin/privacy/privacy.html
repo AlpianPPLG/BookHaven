@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi | CuyPerpus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logoUrl.png" type="image/png">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --success: #4ade80;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #f8f9fa;
+            --bg-dark: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            color: var(--text-dark) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -3px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary) !important;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--success) 0%, var(--primary) 100%);
+            color: white;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* Privacy Section */
+        .privacy-section {
+            padding: 60px 0;
+        }
+
+        .privacy-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privacy-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--success), var(--primary));
+        }
+
+        .privacy-nav {
+            position: sticky;
+            top: 100px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .privacy-nav-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .privacy-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .privacy-nav-item {
+            margin-bottom: 10px;
+        }
+
+        .privacy-nav-link {
+            display: block;
+            padding: 8px 15px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .privacy-nav-link:hover,
+        .privacy-nav-link.active {
+            background-color: rgba(74, 222, 128, 0.1);
+            color: var(--success);
+            transform: translateX(5px);
+        }
+
+        .privacy-content {
+            padding: 20px 0;
+        }
+
+        .privacy-section-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .privacy-section-content {
+            margin-bottom: 40px;
+        }
+
+        .privacy-section-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .privacy-section-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .privacy-section-content li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .privacy-section-content strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .privacy-highlight {
+            background-color: rgba(74, 222, 128, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .privacy-highlight h6 {
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .privacy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .privacy-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .privacy-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .privacy-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .privacy-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .privacy-date {
+            font-style: italic;
+            color: var(--gray-500);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-card h5 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 30px 0;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            color: #a1a1aa;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .footer-text a {
+            color: var(--accent);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            color: white;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .privacy-container {
+                padding: 30px;
+            }
+
+            .privacy-nav {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-icon {
+                font-size: 3rem;
+            }
+
+            .privacy-container {
+                padding: 25px;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .privacy-table {
+                font-size: 0.9rem;
+            }
+
+            .privacy-table th,
+            .privacy-table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .privacy-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <img src="./../../assets/logoNav.png" alt="CuyPerpus Logo" width="120px">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bantuan.html">Bantuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="terms.html">Syarat & Ketentuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="privacy.html">Kebijakan Privasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-lg-3" href="sign/link_login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <div class="hero-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1 class="hero-title">Kebijakan Privasi</h1>
+                <p class="hero-subtitle">Kami berkomitmen untuk melindungi privasi dan keamanan data pribadi Anda. Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="privacy-section">
+        <div class="container">
+            <div class="privacy-container">
+                <div class="row">
+                    <!-- Privacy Navigation -->
+                    <div class="col-lg-3 mb-4 mb-lg-0">
+                        <div class="privacy-nav animate-fade-in delay-1">
+                            <h5 class="privacy-nav-title">
+                                <i class="fas fa-list"></i>
+                                Daftar Isi
+                            </h5>
+                            <ul class="privacy-nav-list">
+                                <li class="privacy-nav-item">
+                                    <a href="#introduction" class="privacy-nav-link active">Pendahuluan</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#collection" class="privacy-nav-link">Pengumpulan Informasi</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#usage" class="privacy-nav-link">Penggunaan Informasi</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#sharing" class="privacy-nav-link">Berbagi Informasi</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#security" class="privacy-nav-link">Keamanan Data</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#cookies" class="privacy-nav-link">Cookie & Pelacakan</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#rights" class="privacy-nav-link">Hak Pengguna</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#retention" class="privacy-nav-link">Penyimpanan Data</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#children" class="privacy-nav-link">Privasi Anak</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#international" class="privacy-nav-link">Transfer Internasional</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#changes" class="privacy-nav-link">Perubahan Kebijakan</a>
+                                </li>
+                                <li class="privacy-nav-item">
+                                    <a href="#contact" class="privacy-nav-link">Kontak Kami</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Content -->
+                    <div class="col-lg-9">
+                        <div class="privacy-content animate-fade-in delay-2">
+                            <div id="introduction" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-info-circle"></i>
+                                    1. Pendahuluan
+                                </h3>
+                                <p>Selamat datang di Kebijakan Privasi CuyPerpus. Dokumen ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan melindungi informasi pribadi Anda ketika Anda menggunakan layanan perpustakaan digital kami.</p>
+                                <p>CuyPerpus berkomitmen untuk melindungi privasi dan keamanan data pribadi semua pengguna kami. Kami memahami pentingnya kepercayaan yang Anda berikan kepada kami dengan membagikan informasi pribadi Anda, dan kami bertanggung jawab untuk menjaga kepercayaan tersebut.</p>
+                                
+                                <div class="privacy-highlight">
+                                    <h6><i class="fas fa-shield-alt me-2"></i>Komitmen Privasi Kami</h6>
+                                    <p class="mb-0">Kami hanya mengumpulkan informasi yang diperlukan untuk memberikan layanan terbaik kepada Anda dan tidak akan pernah menjual data pribadi Anda kepada pihak ketiga untuk tujuan komersial.</p>
+                                </div>
+
+                                <p>Dengan menggunakan layanan CuyPerpus, Anda menyetujui praktik yang dijelaskan dalam Kebijakan Privasi ini. Jika Anda tidak setuju dengan kebijakan ini, mohon untuk tidak menggunakan layanan kami.</p>
+                            </div>
+
+                            <div id="collection" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-database"></i>
+                                    2. Pengumpulan Informasi
+                                </h3>
+                                <p>Kami mengumpulkan berbagai jenis informasi untuk memberikan dan meningkatkan layanan kami kepada Anda:</p>
+                                
+                                <h5><strong>2.1 Informasi yang Anda Berikan Langsung</strong></h5>
+                                <ul>
+                                    <li><strong>Informasi Akun:</strong> Nama lengkap, alamat email, nomor telepon, tanggal lahir, dan alamat</li>
+                                    <li><strong>Informasi Identitas:</strong> Nomor identitas (KTP/SIM/Paspor) untuk verifikasi keanggotaan</li>
+                                    <li><strong>Informasi Akademik:</strong> Institusi pendidikan, nomor induk siswa/mahasiswa (jika berlaku)</li>
+                                    <li><strong>Preferensi:</strong> Kategori buku favorit, bahasa pilihan, notifikasi yang diinginkan</li>
+                                </ul>
+
+                                <h5><strong>2.2 Informasi yang Dikumpulkan Secara Otomatis</strong></h5>
+                                <table class="privacy-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Jenis Data</th>
+                                            <th>Deskripsi</th>
+                                            <th>Tujuan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Log Aktivitas</td>
+                                            <td>Riwayat peminjaman, pencarian, dan interaksi dengan platform</td>
+                                            <td>Meningkatkan layanan dan rekomendasi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data Teknis</td>
+                                            <td>Alamat IP, jenis browser, sistem operasi, waktu akses</td>
+                                            <td>Keamanan dan analisis performa</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cookie</td>
+                                            <td>Preferensi pengguna, status login, pengaturan tampilan</td>
+                                            <td>Personalisasi pengalaman pengguna</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lokasi</td>
+                                            <td>Lokasi geografis umum (dengan persetujuan)</td>
+                                            <td>Layanan berbasis lokasi</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h5><strong>2.3 Informasi dari Pihak Ketiga</strong></h5>
+                                <p>Dalam beberapa kasus, kami mungkin menerima informasi tentang Anda dari sumber lain, seperti:</p>
+                                <ul>
+                                    <li>Institusi pendidikan yang bekerja sama dengan kami</li>
+                                    <li>Layanan media sosial (jika Anda memilih untuk menghubungkan akun)</li>
+                                    <li>Penyedia layanan pembayaran untuk transaksi denda atau biaya</li>
+                                </ul>
+                            </div>
+
+                            <div id="usage" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-cogs"></i>
+                                    3. Penggunaan Informasi
+                                </h3>
+                                <p>Kami menggunakan informasi yang dikumpulkan untuk berbagai tujuan yang sah dan bermanfaat:</p>
+
+                                <h5><strong>3.1 Penyediaan Layanan</strong></h5>
+                                <ul>
+                                    <li>Membuat dan mengelola akun pengguna</li>
+                                    <li>Memproses peminjaman dan pengembalian buku</li>
+                                    <li>Mengirimkan notifikasi tentang status peminjaman, jatuh tempo, dan denda</li>
+                                    <li>Memberikan dukungan pelanggan dan bantuan teknis</li>
+                                    <li>Memproses pembayaran denda dan biaya lainnya</li>
+                                </ul>
+
+                                <h5><strong>3.2 Peningkatan Layanan</strong></h5>
+                                <ul>
+                                    <li>Menganalisis pola penggunaan untuk meningkatkan platform</li>
+                                    <li>Memberikan rekomendasi buku yang dipersonalisasi</li>
+                                    <li>Mengembangkan fitur baru berdasarkan kebutuhan pengguna</li>
+                                    <li>Melakukan penelitian dan analisis untuk inovasi layanan</li>
+                                </ul>
+
+                                <h5><strong>3.3 Komunikasi</strong></h5>
+                                <ul>
+                                    <li>Mengirimkan pembaruan layanan dan pengumuman penting</li>
+                                    <li>Memberikan informasi tentang buku baru dan acara perpustakaan</li>
+                                    <li>Merespons pertanyaan dan permintaan bantuan</li>
+                                    <li>Mengirimkan survei kepuasan pengguna (opsional)</li>
+                                </ul>
+
+                                <h5><strong>3.4 Keamanan dan Kepatuhan</strong></h5>
+                                <ul>
+                                    <li>Mencegah penipuan dan penyalahgunaan layanan</li>
+                                    <li>Memantau aktivitas mencurigakan</li>
+                                    <li>Mematuhi kewajiban hukum dan peraturan</li>
+                                    <li>Melindungi hak dan keamanan pengguna lain</li>
+                                </ul>
+                            </div>
+
+                            <div id="sharing" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-share-alt"></i>
+                                    4. Berbagi Informasi
+                                </h3>
+                                <p>Kami tidak menjual, menyewakan, atau memperdagangkan informasi pribadi Anda. Namun, kami dapat membagikan informasi dalam situasi terbatas berikut:</p>
+
+                                <h5><strong>4.1 Penyedia Layanan</strong></h5>
+                                <p>Kami dapat membagikan informasi dengan pihak ketiga yang membantu kami mengoperasikan layanan, seperti:</p>
+                                <ul>
+                                    <li>Penyedia hosting dan infrastruktur cloud</li>
+                                    <li>Layanan pembayaran dan pemrosesan transaksi</li>
+                                    <li>Penyedia layanan email dan notifikasi</li>
+                                    <li>Layanan analitik dan monitoring</li>
+                                </ul>
+                                <p>Semua penyedia layanan ini terikat oleh perjanjian kerahasiaan dan hanya dapat menggunakan informasi untuk tujuan yang telah ditentukan.</p>
+
+                                <h5><strong>4.2 Kewajiban Hukum</strong></h5>
+                                <p>Kami dapat mengungkapkan informasi jika diwajibkan oleh hukum atau dalam situasi berikut:</p>
+                                <ul>
+                                    <li>Merespons panggilan pengadilan atau proses hukum</li>
+                                    <li>Melindungi hak, properti, atau keamanan CuyPerpus dan pengguna</li>
+                                    <li>Mencegah atau menyelidiki kemungkinan pelanggaran hukum</li>
+                                    <li>Mematuhi peraturan pemerintah yang berlaku</li>
+                                </ul>
+
+                                <h5><strong>4.3 Persetujuan Pengguna</strong></h5>
+                                <p>Kami dapat membagikan informasi dengan persetujuan eksplisit Anda untuk tujuan tertentu, seperti:</p>
+                                <ul>
+                                    <li>Integrasi dengan platform pembelajaran institusi pendidikan</li>
+                                    <li>Partisipasi dalam program penelitian (anonim)</li>
+                                    <li>Layanan tambahan yang Anda minta</li>
+                                </ul>
+                            </div>
+
+                            <div id="security" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-lock"></i>
+                                    5. Keamanan Data
+                                </h3>
+                                <p>Keamanan informasi pribadi Anda adalah prioritas utama kami. Kami menerapkan berbagai langkah keamanan teknis dan organisasi:</p>
+
+                                <h5><strong>5.1 Keamanan Teknis</strong></h5>
+                                <ul>
+                                    <li><strong>Enkripsi:</strong> Semua data sensitif dienkripsi saat transit dan saat disimpan</li>
+                                    <li><strong>Firewall:</strong> Sistem firewall canggih melindungi server kami</li>
+                                    <li><strong>Autentikasi:</strong> Sistem login yang aman dengan opsi autentikasi dua faktor</li>
+                                    <li><strong>Monitoring:</strong> Pemantauan 24/7 untuk mendeteksi aktivitas mencurigakan</li>
+                                    <li><strong>Backup:</strong> Pencadangan data reguler dengan enkripsi</li>
+                                </ul>
+
+                                <h5><strong>5.2 Keamanan Organisasi</strong></h5>
+                                <ul>
+                                    <li>Akses terbatas hanya untuk karyawan yang memerlukan</li>
+                                    <li>Pelatihan keamanan reguler untuk semua staf</li>
+                                    <li>Kebijakan keamanan yang ketat dan audit berkala</li>
+                                    <li>Prosedur respons insiden keamanan</li>
+                                </ul>
+
+                                <div class="privacy-highlight">
+                                    <h6><i class="fas fa-exclamation-triangle me-2"></i>Penting untuk Diingat</h6>
+                                    <p class="mb-0">Meskipun kami menerapkan langkah keamanan terbaik, tidak ada sistem yang 100% aman. Kami mendorong Anda untuk menjaga kerahasiaan password dan segera melaporkan aktivitas mencurigakan pada akun Anda.</p>
+                                </div>
+                            </div>
+
+                            <div id="cookies" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-cookie-bite"></i>
+                                    6. Cookie & Teknologi Pelacakan
+                                </h3>
+                                <p>Kami menggunakan cookie dan teknologi serupa untuk meningkatkan pengalaman Anda di platform kami:</p>
+
+                                <h5><strong>6.1 Jenis Cookie yang Kami Gunakan</strong></h5>
+                                <table class="privacy-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Jenis Cookie</th>
+                                            <th>Tujuan</th>
+                                            <th>Durasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cookie Esensial</td>
+                                            <td>Fungsi dasar website, keamanan, dan autentikasi</td>
+                                            <td>Sesi atau hingga logout</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cookie Preferensi</td>
+                                            <td>Mengingat pengaturan dan preferensi pengguna</td>
+                                            <td>Hingga 1 tahun</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cookie Analitik</td>
+                                            <td>Memahami penggunaan website dan meningkatkan layanan</td>
+                                            <td>Hingga 2 tahun</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cookie Fungsional</td>
+                                            <td>Fitur tambahan seperti chat support dan rekomendasi</td>
+                                            <td>Hingga 6 bulan</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h5><strong>6.2 Mengelola Cookie</strong></h5>
+                                <p>Anda dapat mengelola preferensi cookie melalui:</p>
+                                <ul>
+                                    <li>Pengaturan browser Anda untuk memblokir atau menghapus cookie</li>
+                                    <li>Panel preferensi cookie di website kami</li>
+                                    <li>Pengaturan akun untuk cookie non-esensial</li>
+                                </ul>
+                                <p><strong>Catatan:</strong> Menonaktifkan cookie tertentu dapat mempengaruhi fungsionalitas website.</p>
+                            </div>
+
+                            <div id="rights" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-user-shield"></i>
+                                    7. Hak Pengguna
+                                </h3>
+                                <p>Anda memiliki berbagai hak terkait data pribadi Anda. Kami berkomitmen untuk menghormati dan memfasilitasi pelaksanaan hak-hak ini:</p>
+
+                                <h5><strong>7.1 Hak Akses</strong></h5>
+                                <ul>
+                                    <li>Meminta salinan data pribadi yang kami simpan tentang Anda</li>
+                                    <li>Mengetahui bagaimana data Anda digunakan</li>
+                                    <li>Mengakses riwayat aktivitas akun Anda</li>
+                                </ul>
+
+                                <h5><strong>7.2 Hak Koreksi</strong></h5>
+                                <ul>
+                                    <li>Memperbarui informasi pribadi yang tidak akurat</li>
+                                    <li>Melengkapi informasi yang tidak lengkap</li>
+                                    <li>Mengubah preferensi dan pengaturan akun</li>
+                                </ul>
+
+                                <h5><strong>7.3 Hak Penghapusan</strong></h5>
+                                <ul>
+                                    <li>Meminta penghapusan data pribadi dalam kondisi tertentu</li>
+                                    <li>Menghapus akun dan data terkait</li>
+                                    <li>Membatalkan persetujuan untuk pemrosesan data</li>
+                                </ul>
+
+                                <h5><strong>7.4 Hak Portabilitas</strong></h5>
+                                <ul>
+                                    <li>Menerima data pribadi dalam format yang dapat dibaca mesin</li>
+                                    <li>Mentransfer data ke layanan lain (jika memungkinkan secara teknis)</li>
+                                </ul>
+
+                                <h5><strong>7.5 Hak Pembatasan</strong></h5>
+                                <ul>
+                                    <li>Membatasi pemrosesan data dalam situasi tertentu</li>
+                                    <li>Menolak pemrosesan untuk tujuan pemasaran</li>
+                                    <li>Menarik persetujuan kapan saja</li>
+                                </ul>
+
+                                <div class="privacy-highlight">
+                                    <h6><i class="fas fa-info-circle me-2"></i>Cara Menggunakan Hak Anda</h6>
+                                    <p class="mb-0">Untuk menggunakan hak-hak ini, silakan hubungi kami melalui email privacy@cuyperpus.com atau melalui pengaturan akun Anda. Kami akan merespons permintaan Anda dalam waktu maksimal 30 hari.</p>
+                                </div>
+                            </div>
+
+                            <div id="retention" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-archive"></i>
+                                    8. Penyimpanan Data
+                                </h3>
+                                <p>Kami menyimpan data pribadi Anda hanya selama diperlukan untuk tujuan yang dijelaskan dalam kebijakan ini:</p>
+
+                                <h5><strong>8.1 Periode Penyimpanan</strong></h5>
+                                <table class="privacy-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Jenis Data</th>
+                                            <th>Periode Penyimpanan</th>
+                                            <th>Alasan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Data Akun Aktif</td>
+                                            <td>Selama akun aktif + 3 tahun</td>
+                                            <td>Penyediaan layanan dan kewajiban hukum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Riwayat Peminjaman</td>
+                                            <td>5 tahun setelah pengembalian</td>
+                                            <td>Audit dan pelaporan statistik</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data Transaksi Keuangan</td>
+                                            <td>7 tahun</td>
+                                            <td>Kewajiban perpajakan dan audit</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Log Keamanan</td>
+                                            <td>2 tahun</td>
+                                            <td>Investigasi keamanan dan forensik</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data Analitik (Anonim)</td>
+                                            <td>Tidak terbatas</td>
+                                            <td>Penelitian dan pengembangan layanan</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h5><strong>8.2 Penghapusan Data</strong></h5>
+                                <p>Setelah periode penyimpanan berakhir, kami akan:</p>
+                                <ul>
+                                    <li>Menghapus data secara permanen dari sistem aktif</li>
+                                    <li>Menganonimkan data untuk tujuan statistik</li>
+                                    <li>Memastikan data tidak dapat dipulihkan</li>
+                                    <li>Memberikan konfirmasi penghapusan jika diminta</li>
+                                </ul>
+                            </div>
+
+                            <div id="children" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-child"></i>
+                                    9. Privasi Anak
+                                </h3>
+                                <p>Kami berkomitmen untuk melindungi privasi anak-anak dan mematuhi peraturan yang berlaku:</p>
+
+                                <h5><strong>9.1 Batasan Usia</strong></h5>
+                                <ul>
+                                    <li>Layanan kami ditujukan untuk pengguna berusia 13 tahun ke atas</li>
+                                    <li>Anak di bawah 13 tahun memerlukan persetujuan orang tua/wali</li>
+                                    <li>Kami tidak secara sengaja mengumpulkan data dari anak di bawah 13 tahun tanpa persetujuan</li>
+                                </ul>
+
+                                <h5><strong>9.2 Perlindungan Khusus</strong></h5>
+                                <ul>
+                                    <li>Data anak diproses dengan perlindungan tambahan</li>
+                                    <li>Akses terbatas pada konten yang sesuai usia</li>
+                                    <li>Notifikasi khusus untuk orang tua/wali</li>
+                                    <li>Hak khusus untuk penghapusan data anak</li>
+                                </ul>
+
+                                <h5><strong>9.3 Hak Orang Tua/Wali</strong></h5>
+                                <ul>
+                                    <li>Mengakses dan meninjau data anak</li>
+                                    <li>Meminta koreksi atau penghapusan data</li>
+                                    <li>Membatasi pengumpulan data lebih lanjut</li>
+                                    <li>Menerima notifikasi tentang praktik data</li>
+                                </ul>
+                            </div>
+
+                            <div id="international" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-globe"></i>
+                                    10. Transfer Data Internasional
+                                </h3>
+                                <p>Dalam beberapa kasus, data Anda mungkin diproses atau disimpan di luar Indonesia:</p>
+
+                                <h5><strong>10.1 Alasan Transfer</strong></h5>
+                                <ul>
+                                    <li>Penggunaan layanan cloud internasional untuk keandalan</li>
+                                    <li>Dukungan teknis dari penyedia layanan global</li>
+                                    <li>Backup data untuk pemulihan bencana</li>
+                                    <li>Analitik dan peningkatan layanan</li>
+                                </ul>
+
+                                <h5><strong>10.2 Perlindungan Transfer</strong></h5>
+                                <ul>
+                                    <li>Hanya ke negara dengan tingkat perlindungan data yang memadai</li>
+                                    <li>Kontrak perlindungan data dengan penyedia layanan</li>
+                                    <li>Enkripsi data selama transfer</li>
+                                    <li>Audit kepatuhan berkala</li>
+                                </ul>
+
+                                <h5><strong>10.3 Hak Anda</strong></h5>
+                                <p>Anda berhak untuk:</p>
+                                <ul>
+                                    <li>Mengetahui negara tujuan transfer data</li>
+                                    <li>Meminta informasi tentang perlindungan yang diterapkan</li>
+                                    <li>Menolak transfer dalam kondisi tertentu</li>
+                                    <li>Mengajukan keluhan jika ada kekhawatiran</li>
+                                </ul>
+                            </div>
+
+                            <div id="changes" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-edit"></i>
+                                    11. Perubahan Kebijakan
+                                </h3>
+                                <p>Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu untuk mencerminkan perubahan dalam praktik kami atau persyaratan hukum:</p>
+
+                                <h5><strong>11.1 Pemberitahuan Perubahan</strong></h5>
+                                <ul>
+                                    <li>Pemberitahuan email untuk perubahan material</li>
+                                    <li>Pengumuman di website dan aplikasi</li>
+                                    <li>Periode transisi untuk perubahan signifikan</li>
+                                    <li>Pembaruan tanggal "Terakhir Diperbarui"</li>
+                                </ul>
+
+                                <h5><strong>11.2 Jenis Perubahan</strong></h5>
+                                <ul>
+                                    <li><strong>Perubahan Minor:</strong> Klarifikasi atau perbaikan editorial</li>
+                                    <li><strong>Perubahan Material:</strong> Perubahan tujuan penggunaan data atau berbagi dengan pihak ketiga</li>
+                                    <li><strong>Perubahan Hukum:</strong> Penyesuaian dengan peraturan baru</li>
+                                </ul>
+
+                                <h5><strong>11.3 Hak Anda</strong></h5>
+                                <ul>
+                                    <li>Meninjau perubahan sebelum berlaku efektif</li>
+                                    <li>Menolak perubahan dengan menghentikan penggunaan layanan</li>
+                                    <li>Meminta penjelasan tentang perubahan</li>
+                                    <li>Mengunduh versi sebelumnya dari kebijakan</li>
+                                </ul>
+                            </div>
+
+                            <div id="contact" class="privacy-section-content">
+                                <h3 class="privacy-section-title">
+                                    <i class="fas fa-envelope"></i>
+                                    12. Kontak Kami
+                                </h3>
+                                <p>Jika Anda memiliki pertanyaan, kekhawatiran, atau permintaan terkait privasi dan perlindungan data, jangan ragu untuk menghubungi kami:</p>
+
+                                <div class="contact-card">
+                                    <h5><i class="fas fa-shield-alt me-2"></i>Tim Perlindungan Data CuyPerpus</h5>
+                                    <p><strong>Email:</strong> <a href="mailto:privacy@cuyperpus.com">privacy@cuyperpus.com</a></p>
+                                    <p><strong>Telepon:</strong> <a href="tel:+622112345678">(021) 1234-5678</a></p>
+                                    <p><strong>Alamat:</strong> Jl. Pelta 2 Sulstan Sulaiman, Samarinda, Kalimantan Timur</p>
+                                    <p class="mb-0"><strong>Jam Operasional:</strong> Senin - Jumat, 08:00 - 16:00 WIB</p>
+                                </div>
+
+                                <h5><strong>Waktu Respons</strong></h5>
+                                <ul>
+                                    <li>Pertanyaan umum: 1-2 hari kerja</li>
+                                    <li>Permintaan akses data: 7-14 hari kerja</li>
+                                    <li>Permintaan penghapusan: 14-30 hari kerja</li>
+                                    <li>Keluhan keamanan: 24 jam</li>
+                                </ul>
+
+                                <h5><strong>Informasi yang Diperlukan</strong></h5>
+                                <p>Untuk memproses permintaan Anda dengan cepat, mohon sertakan:</p>
+                                <ul>
+                                    <li>Nama lengkap dan email yang terdaftar</li>
+                                    <li>Jenis permintaan atau keluhan</li>
+                                    <li>Detail spesifik tentang data yang dimaksud</li>
+                                    <li>Dokumen identitas untuk verifikasi (jika diperlukan)</li>
+                                </ul>
+                            </div>
+
+                            <p class="privacy-date">Terakhir diperbarui: 23 Mei 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                &copy; 2025 <a href="index.php">CuyPerpus</a>. Made with <i class="fas fa-heart text-danger"></i> by <a href="#">Alpian</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('.privacy-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.privacy-nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.privacy-section-content');
+            const navLinks = document.querySelectorAll('.privacy-nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all privacy section content
+        document.querySelectorAll('.privacy-section-content').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
