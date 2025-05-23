@@ -5,8 +5,6 @@ $password = "";
 $database_name = "sistem-perpustakaan";
 $connection = mysqli_connect($host, $username, $password, $database_name);
 
-// === FUNCTION KHUSUS ADMIN START ===
-
 // MENAMPILKAN DATA KATEGORI BUKU
 function queryReadData($dataKategori) {
   global $connection;
@@ -163,8 +161,6 @@ function updateBuku($dataBuku) {
   }else {
     $cover = upload();
   }
-  // 4 === gagal upload gambar
-  // 0 === berhasil upload gambar
   
   $queryUpdate = "UPDATE buku SET 
   cover = '$cover',
@@ -201,11 +197,6 @@ function deleteDataPengembalian($idPengembalian) {
   return mysqli_affected_rows($connection);
 }
 
-
-// === FUNCTION KHUSUS ADMIN END ===
-
-
-// === FUNCTION KHUSUS MEMBER START ===
 // Peminjaman BUKU
 function pinjamBuku($dataBuku) {
   global $connection;
@@ -285,5 +276,4 @@ function bayarDenda($data) {
   return mysqli_affected_rows($connection);
 }
 
-// === FUNCTION KHUSUS MEMBER END ===
 ?>
