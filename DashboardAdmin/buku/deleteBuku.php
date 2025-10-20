@@ -16,4 +16,4 @@ if(delete($bukuId) > 0) {
   document.location.href = 'daftarBuku.php';
   </script>";
 }
-?>
+?>w

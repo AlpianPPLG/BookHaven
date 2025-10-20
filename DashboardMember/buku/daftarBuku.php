@@ -585,8 +585,8 @@ if(isset($_POST["sains"])) $activeCategory = "sains";
     <nav class="navbar fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="../../assets/logoNav.png" alt="CuyPerpus Logo">
-            </a>
+            <h1>BookHaven</h1>
+        </a>
             <a class="dashboard-btn" href="../dashboardMember.php">
                 <i class="fas fa-tachometer-alt"></i>
                 Dashboard

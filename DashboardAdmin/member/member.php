@@ -31,8 +31,8 @@ if(isset($_POST["search"]) ) {
     <nav class="navbar fixed-top bg-body-tertiary shadow-sm">
         <div class="container-fluid p-3">
             <a class="navbar-brand" href="#">
-                <img src="../../assets/logoNav.png" alt="logo" width="120px">
-            </a>
+            <h2>Member</h2>
+        </a>
 
             <a class="btn btn-tertiary" href="../dashboardAdmin.php">Dashboard</a>
         </div>
