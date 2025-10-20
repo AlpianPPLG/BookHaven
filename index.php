@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <title>CuyPerpus.com</title>
+    <title>BookHaven.com</title>
     <link rel="icon" href="assets/logoUrl.png" type="image/png">
     <style>
     :root {
@@ -623,8 +623,8 @@
     <!--Navbar-->
     <nav class="navbar fixed-top navbar-expand-lg shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/logoNav.png" alt="CuyPerpus Logo" width="120px">
+            <a class="navbar-brand" href="#" style="color: var(--primary); font-weight: bold; font-size: 2rem;">
+                <h1>BookHaven</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -664,18 +664,18 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content animate-fade-in">
                     <h1 class="hero-title">
-                        <span>Cuy</span>Perpus
+                        <span>Book</span>Haven
                     </h1>
                     <p class="hero-subtitle animate-fade-in delay-1">
                         "Temukan Dunia Pengetahuan di Ujung Jari Anda: Perpustakaan Online <span
-                            class="fw-bold">CuyPerpus</span> Membawa Anda ke Dunia Buku Digital."
+                            class="fw-bold">BookHaven</span> Membawa Anda ke Dunia Buku Digital."
                     </p>
                     <a class="btn btn-primary animate-fade-in delay-2" href="sign/link_login.html">
                         Get Started <i class="fa-solid fa-arrow-right ms-2"></i>
                     </a>
                 </div>
                 <div class="col-lg-6 hero-image-container animate-fade-in delay-3">
-                    <img src="assets/logoDashboard-transformed.jpeg" class="hero-image" alt="CuyPerpus Dashboard">
+                    <img src="assets/logoDashboard-transformed.jpeg" class="hero-image" alt="BookHaven Dashboard">
                 </div>
             </div>
         </div>
@@ -686,7 +686,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="section-title">About CuyPerpus</h2>
+                    <h2 class="section-title">About BookHaven</h2>
                     <p class="about-text">
                         Kami percaya bahwa pengetahuan adalah kekuatan, dan setiap individu berhak mendapatkan akses ke
                         sumber
@@ -734,7 +734,7 @@
     <!-- Features Section -->
     <section id="featuresSection">
         <div class="container">
-            <h2 class="section-title-center animate-fade-in">Fitur Unggulan CuyPerpus</h2>
+            <h2 class="section-title-center animate-fade-in">Fitur Unggulan BookHaven</h2>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="feature-card animate-fade-in delay-1">
@@ -820,16 +820,16 @@
                     <div class="testimonial-card animate-fade-in delay-1">
                         <i class="fas fa-quote-right testimonial-quote"></i>
                         <p class="testimonial-text">
-                            "CuyPerpus sangat membantu saya dalam mencari referensi untuk tugas sekolah. Sistem
+                            "BookHaven sangat membantu saya dalam mencari referensi untuk tugas sekolah. Sistem
                             pencarian bukunya cepat dan mudah digunakan!"
                         </p>
                         <div class="testimonial-author">
                             <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Testimonial Author"
                                 class="testimonial-avatar">
-                            <div class="testimonial-info">
+                            <div class="testimonial-info">      
                                 <h5>Dina Putri</h5>
                                 <p>Siswa SMA</p>
-                                <div class="testimonial-rating">
+                                <div class="testimonial-rating">    
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -844,7 +844,7 @@
                     <div class="testimonial-card animate-fade-in delay-2">
                         <i class="fas fa-quote-right testimonial-quote"></i>
                         <p class="testimonial-text">
-                            "Sebagai guru, saya sangat terbantu dengan adanya CuyPerpus. Saya bisa dengan mudah
+                            "Sebagai guru, saya sangat terbantu dengan adanya BookHaven. Saya bisa dengan mudah
                             merekomendasikan buku-buku berkualitas kepada siswa saya."
                         </p>
                         <div class="testimonial-author">
@@ -852,7 +852,7 @@
                                 class="testimonial-avatar">
                             <div class="testimonial-info">
                                 <h5>Budi Santoso</h5>
-                                <p>Guru Bahasa Indonesia</p>
+                                <p>Guru Bahasa Indonesia</p>    
                                 <div class="testimonial-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -902,13 +902,13 @@
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Bagaimana cara mendaftar di CuyPerpus?
+                                Bagaimana cara mendaftar di BookHaven?
                             </button>
-                        </h2>
+                        </h2>   
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Untuk mendaftar di CuyPerpus, klik tombol "Login" di menu navigasi, lalu pilih opsi
+                                Untuk mendaftar di BookHaven, klik tombol "Login" di menu navigasi, lalu pilih opsi
                                 "Sign Up" pada halaman login. Isi formulir pendaftaran dengan data diri Anda yang valid,
                                 lalu klik tombol "Daftar". Setelah berhasil mendaftar, Anda dapat langsung login
                                 menggunakan username dan password yang telah dibuat.
@@ -925,7 +925,7 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Batas waktu peminjaman buku di CuyPerpus adalah 7 hari kalender terhitung sejak tanggal
+                                Batas waktu peminjaman buku di BookHaven adalah 7 hari kalender terhitung sejak tanggal
                                 peminjaman. Anda dapat memperpanjang masa peminjaman sebanyak 1 kali dengan durasi
                                 tambahan 7 hari, dengan syarat buku yang dipinjam tidak sedang dipesan oleh member lain
                                 dan Anda tidak memiliki denda yang belum dibayar.
@@ -936,7 +936,7 @@
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Bagaimana cara meminjam buku di CuyPerpus?
+                                Bagaimana cara meminjam buku di BookHaven?
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
@@ -970,15 +970,15 @@
                         <h2 class="accordion-header" id="headingFive">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Apakah CuyPerpus dapat diakses melalui perangkat mobile?
+                                Apakah BookHaven dapat diakses melalui perangkat mobile?
                             </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Ya, CuyPerpus dirancang dengan tampilan responsif sehingga dapat diakses dengan nyaman
+                                Ya, BookHaven dirancang dengan tampilan responsif sehingga dapat diakses dengan nyaman
                                 melalui berbagai perangkat, termasuk smartphone dan tablet. Anda dapat mengakses semua
-                                fitur CuyPerpus melalui browser di perangkat mobile Anda tanpa perlu menginstal aplikasi
+                                fitur BookHaven melalui browser di perangkat mobile Anda tanpa perlu menginstal aplikasi
                                 tambahan.
                             </div>
                         </div>
@@ -1010,10 +1010,10 @@
                         <div class="contact-info-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
-                            </div>
+                            </div>  
                             <div class="contact-text">
                                 <h5>Email</h5>
-                                <p><a href="mailto:info@cuyperpus.com">info@cuyperpus.com</a></p>
+                                <p><a href="mailto:nova07pplg@gmail.com">Nova07pplg@gmail.com</a></p>
                             </div>
                         </div>
 
@@ -1023,7 +1023,7 @@
                             </div>
                             <div class="contact-text">
                                 <h5>Telepon</h5>
-                                <p><a href="tel:+6282354877197">+62 823 5487 7197</a></p>
+                                <p><a href="tel:+6282354877197">+62 812 5844 194</a></p>
                             </div>
                         </div>
 
@@ -1038,11 +1038,10 @@
                         </div>
 
                         <div class="social-links-contact">
-                            <a href="#" class="social-link-contact"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link-contact"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link-contact"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link-contact"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link-contact"><i class="fab fa-github"></i></a>
+                            <a href="https://www.facebook.com/Nova%20Pratama.id" class="social-link-contact"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/_ubermensch7/" class="social-link-contact"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/alpian-web-developer-photographer-7a16522bb/" class="social-link-contact"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/AlpianPPLG" class="social-link-contact"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1099,9 +1098,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <img src="assets/logoFooter.png" class="footer-logo" width="200px" alt="CuyPerpus Logo">
                     <p class="footer-text">
-                        Perpustakaan digital untuk semua. Akses ribuan buku dari mana saja dan kapan saja.
+                        Perpustakaan digital untuk semua. Akses ribuan buku dari mana saja dan kapan saja
                     </p>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -1112,12 +1110,12 @@
                     </p>
                     <p class="footer-text">
                         <i class="fa-solid fa-envelope me-2"></i>
-                        info@cuyperpus.com
+                        Nova07pplg@gmail.com
                     </p>
                     <p class="footer-text">
                         <i class="fa-solid fa-phone me-2"></i>
-                        +62 823 5487 7197
-                    </p>
+                            +62 812 5844 194                    
+                         </p>
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h3 class="footer-heading">Tautan Cepat</h3>
@@ -1140,10 +1138,9 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fa-brands fa-telegram"></i></a>
-                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="github.com/AlpianPPLG" class="social-link"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/_ubermensch7/" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Nova%20Pratama.id" class="social-link"><i class="fa-brands fa-facebook"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6">

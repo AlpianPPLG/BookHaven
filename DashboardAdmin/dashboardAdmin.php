@@ -21,7 +21,7 @@ if(!isset($_SESSION["signIn"]) ) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <title>CuyPerpus - Admin Dashboard</title>
+    <title>BookHaven - Admin Dashboard</title>
     <style>
     :root {
         --primary: #4361ee;
@@ -644,8 +644,8 @@ if(!isset($_SESSION["signIn"]) ) {
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <img src="../assets/logoNav.png" alt="CuyPerpus Logo" class="sidebar-logo">
-            <button class="close-sidebar" id="closeSidebar">
+            <h1>BookHaven</h1>
+        <button class="close-sidebar" id="closeSidebar">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -754,7 +754,7 @@ if(!isset($_SESSION["signIn"]) ) {
             <div class="welcome-alert animate-fade-in delay-2">
                 <h4><i class="fas fa-hand-wave me-2"></i> Selamat datang,
                     <?php echo $_SESSION['admin']['nama_admin']; ?>!</h4>
-                <p class="mb-0">Selamat datang di Dashboard Admin CuyPerpus. Kelola perpustakaan dengan mudah dan
+                <p class="mb-0">Selamat datang di Dashboard Admin BookHaven. Kelola perpustakaan dengan mudah dan
                     efisien.</p>
             </div>
 

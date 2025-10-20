@@ -44,8 +44,8 @@ WHERE pengembalian.id_pengembalian = $dendaSiswa");
     <nav class="navbar fixed-top bg-body-tertiary shadow-sm">
       <div class="container-fluid p-3">
         <a class="navbar-brand" href="#">
-          <img src="../../assets/logoNav.png" alt="logo" width="120px">
-        </a>
+          <h1>BookHaven</h1>  
+      </a>
         
         <a class="btn btn-tertiary" href="../dashboardMember.php">Dashboard</a>
       </div>
