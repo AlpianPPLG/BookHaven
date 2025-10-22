@@ -616,6 +616,41 @@
     .delay-5 {
         animation-delay: 1s;
     }
+
+    /* Typewriter Effect Styles */
+    .static-text {
+        background: linear-gradient(90deg, var(--primary), var(--success));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .typewriter-text {
+        background: linear-gradient(90deg, var(--primary), var(--success));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        border-right: 3px solid var(--primary);
+        animation: blink 1s infinite;
+    }
+
+    @keyframes typewriter {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink {
+        0%, 50% {
+            border-color: var(--primary);
+        }
+        51%, 100% {
+            border-color: transparent;
+        }
+    }
     </style>
 </head>
 
@@ -664,7 +699,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content animate-fade-in">
                     <h1 class="hero-title">
-                        <span>Book</span>Haven
+                        <span class="static-text"></span><span class="typewriter-text" id="typewriter"></span>
                     </h1>
                     <p class="hero-subtitle animate-fade-in delay-1">
                         "Temukan Dunia Pengetahuan di Ujung Jari Anda: Perpustakaan Online <span
@@ -1098,6 +1133,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
+                    <h3 class="footer-heading">BookHaven</h3>
                     <p class="footer-text">
                         Perpustakaan digital untuk semua. Akses ribuan buku dari mana saja dan kapan saja
                     </p>
@@ -1209,6 +1245,49 @@
             }
         });
     }
+
+    // Typewriter Effect
+    function typewriterEffect() {
+        const typewriterElement = document.getElementById('typewriter');
+        const text = 'Book Haven';
+        let index = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = isDeleting
+                ? text.substring(0, index--)
+                : text.substring(0, index++);
+
+            typewriterElement.textContent = currentText;
+
+            // Add typing animation class
+            typewriterElement.style.animation = isDeleting ? 'none' : 'typewriter 2s steps(40, end)';
+
+            if (!isDeleting && index === text.length + 1) {
+                // Pause at end
+                setTimeout(() => {
+                    isDeleting = true;
+                    typewriterElement.style.animation = 'blink 1s infinite';
+                }, 1000);
+            } else if (isDeleting && index === 0) {
+                // Start typing again
+                isDeleting = false;
+                setTimeout(type, 500);
+                return;
+            }
+
+            const typingSpeed = isDeleting ? 100 : 150;
+            setTimeout(type, typingSpeed);
+        }
+
+        // Start the typewriter effect
+        type();
+    }
+
+    // Initialize typewriter effect when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        typewriterEffect();
+    });
     </script>
 </body>
 

@@ -6,7 +6,6 @@ $password = "";
 $database = "sistem-perpustakaan";
 $connect = mysqli_connect($host, $username, $password, $database);
 
-
 /* SIGN UP Member */
 function signUp($data) {
   global $connect;

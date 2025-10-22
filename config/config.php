@@ -270,10 +270,146 @@ function bayarDenda($data) {
   $jmlDenda = $data["denda"];
   $jmlDibayar = $data["bayarDenda"];
   $calculate = $jmlDenda - $jmlDibayar;
-  
+
   $bayarDenda = "UPDATE pengembalian SET denda = $calculate WHERE id_pengembalian = $idPengembalian";
   mysqli_query($connection, $bayarDenda);
   return mysqli_affected_rows($connection);
+}
+
+// Check database connection
+if (!$connection) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// DASHBOARD STATISTICS FUNCTIONS
+// Get total members count
+function getTotalMembers() {
+  global $connection;
+  if (!$connection) return 0;
+
+  $query = "SELECT COUNT(*) as total FROM member";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
+}
+
+// Get total books count
+function getTotalBooks() {
+  global $connection;
+  if (!$connection) return 0;
+
+  $query = "SELECT COUNT(*) as total FROM buku";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
+}
+
+// Get active loans count (peminjaman without corresponding pengembalian)
+function getActiveLoans() {
+  global $connection;
+  if (!$connection) return 0;
+
+  $query = "SELECT COUNT(*) as total FROM peminjaman p
+            WHERE NOT EXISTS (
+                SELECT 1 FROM pengembalian pe
+                WHERE pe.id_peminjaman = p.id_peminjaman
+            )";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
+}
+
+// Get returns today count
+function getReturnsToday() {
+  global $connection;
+  if (!$connection) return 0;
+
+  $today = date('Y-m-d');
+  $query = "SELECT COUNT(*) as total FROM pengembalian WHERE DATE(buku_kembali) = '$today'";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
+}
+
+// Get total fines sum
+function getTotalFines() {
+  global $connection;
+  if (!$connection) return 0;
+
+  $query = "SELECT COALESCE(SUM(denda), 0) as total FROM pengembalian WHERE denda > 0";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
+}
+
+// Format number to Indonesian Rupiah
+function formatRupiah($number) {
+  return 'Rp ' . number_format($number, 0, ',', '.');
+}
+
+// MEMBER DASHBOARD STATISTICS FUNCTIONS
+// Get books currently borrowed by a specific member
+function getMemberBooksBorrowed($nisn) {
+  global $connection;
+  if (!$connection) return 0;
+
+  $query = "SELECT COUNT(*) as total FROM peminjaman p
+            WHERE p.nisn = $nisn AND NOT EXISTS (
+                SELECT 1 FROM pengembalian pe
+                WHERE pe.id_peminjaman = p.id_peminjaman
+            )";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
+}
+
+// Get books returned by a specific member
+function getMemberBooksReturned($nisn) {
+  global $connection;
+  if (!$connection) return 0;
+
+  $query = "SELECT COUNT(*) as total FROM pengembalian pe
+            INNER JOIN peminjaman p ON pe.id_peminjaman = p.id_peminjaman
+            WHERE p.nisn = $nisn";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
+}
+
+// Get total unpaid fines for a specific member
+function getMemberTotalFines($nisn) {
+  global $connection;
+  if (!$connection) return 0;
+
+  $query = "SELECT COALESCE(SUM(denda), 0) as total FROM pengembalian
+            WHERE nisn = $nisn AND denda > 0";
+  $result = mysqli_query($connection, $query);
+
+  if (!$result) return 0;
+
+  $data = mysqli_fetch_assoc($result);
+  return $data['total'] ?? 0;
 }
 
 ?>
