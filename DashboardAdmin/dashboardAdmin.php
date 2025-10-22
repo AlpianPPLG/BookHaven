@@ -6,6 +6,9 @@ if(!isset($_SESSION["signIn"]) ) {
   exit;
 }
 
+// Include database configuration
+require_once '../config/config.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -676,11 +679,7 @@ if(!isset($_SESSION["signIn"]) ) {
                 <span class="menu-text">Denda</span>
             </a>
 
-            <p class="menu-header">Pengaturan</p>
-            <a href="#" class="menu-item">
-                <i class="fas fa-cog"></i>
-                <span class="menu-text">Pengaturan</span>
-            </a>
+            <p class="menu-header">Menu Lainnya</p>
             <a href="bantuan/bantuan.html" class="menu-item">
                 <i class="fas fa-question-circle"></i>
                 <span class="menu-text">Bantuan</span>
@@ -711,14 +710,7 @@ if(!isset($_SESSION["signIn"]) ) {
                     </div>
                 </div>
                 <div class="user-dropdown-divider"></div>
-                <a href="#" class="user-dropdown-item">
-                    <i class="fas fa-user"></i>
-                    <span>Profil Saya</span>
-                </a>
-                <a href="#" class="user-dropdown-item">
-                    <i class="fas fa-cog"></i>
-                    <span>Pengaturan</span>
-                </a>
+
                 <a href="#" class="user-dropdown-item">
                     <i class="fas fa-check-circle"></i>
                     <span>Akun Terverifikasi</span>
@@ -764,35 +756,35 @@ if(!isset($_SESSION["signIn"]) ) {
                         <i class="fas fa-users"></i>
                     </div>
                     <p class="stat-title">Total Member</p>
-                    <h3 class="stat-value">245</h3>
+                    <h3 class="stat-value"><?php echo number_format(getTotalMembers()); ?></h3>
                 </div>
                 <div class="stat-card books">
                     <div class="stat-icon books">
                         <i class="fas fa-book"></i>
                     </div>
                     <p class="stat-title">Total Buku</p>
-                    <h3 class="stat-value">1,250</h3>
+                    <h3 class="stat-value"><?php echo number_format(getTotalBooks()); ?></h3>
                 </div>
                 <div class="stat-card borrows">
                     <div class="stat-icon borrows">
                         <i class="fas fa-hand-holding"></i>
                     </div>
                     <p class="stat-title">Peminjaman Aktif</p>
-                    <h3 class="stat-value">37</h3>
+                    <h3 class="stat-value"><?php echo getActiveLoans(); ?></h3>
                 </div>
                 <div class="stat-card returns">
                     <div class="stat-icon returns">
                         <i class="fas fa-undo"></i>
                     </div>
                     <p class="stat-title">Pengembalian Hari Ini</p>
-                    <h3 class="stat-value">12</h3>
+                    <h3 class="stat-value"><?php echo getReturnsToday(); ?></h3>
                 </div>
                 <div class="stat-card fines">
                     <div class="stat-icon fines">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
                     <p class="stat-title">Total Denda</p>
-                    <h3 class="stat-value">Rp 450K</h3>
+                    <h3 class="stat-value"><?php echo (getTotalFines() > 0) ? formatRupiah(getTotalFines()) : 'Rp 0'; ?></h3>
                 </div>
             </div>
 

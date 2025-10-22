@@ -5,6 +5,10 @@ if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../sign/member/sign_in.php");
   exit;
 }
+
+// Include database configuration
+require_once '../config/config.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -751,16 +755,6 @@ if(!isset($_SESSION["signIn"]) ) {
                 <i class="fas fa-money-bill-wave"></i>
                 <span class="menu-text">Denda</span>
             </a>
-
-            <p class="menu-header">Akun</p>
-            <a href="#" class="menu-item">
-                <i class="fas fa-user"></i>
-                <span class="menu-text">Profil Saya</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="fas fa-history"></i>
-                <span class="menu-text">Riwayat Peminjaman</span>
-            </a>
         </div>
     </div>
 
@@ -787,14 +781,6 @@ if(!isset($_SESSION["signIn"]) ) {
                     </div>
                 </div>
                 <div class="user-dropdown-divider"></div>
-                <a href="#" class="user-dropdown-item">
-                    <i class="fas fa-user"></i>
-                    <span>Profil Saya</span>
-                </a>
-                <a href="#" class="user-dropdown-item">
-                    <i class="fas fa-history"></i>
-                    <span>Riwayat Peminjaman</span>
-                </a>
                 <a href="signOut.php" class="user-dropdown-item logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Keluar</span>
@@ -836,28 +822,28 @@ if(!isset($_SESSION["signIn"]) ) {
                         <i class="fas fa-book"></i>
                     </div>
                     <p class="stat-title">Total Buku</p>
-                    <h3 class="stat-value">1,250</h3>
+                    <h3 class="stat-value"><?php echo number_format(getTotalBooks()); ?></h3>
                 </div>
                 <div class="stat-card borrowed">
                     <div class="stat-icon borrowed">
                         <i class="fas fa-hand-holding"></i>
                     </div>
                     <p class="stat-title">Buku Dipinjam</p>
-                    <h3 class="stat-value">3</h3>
+                    <h3 class="stat-value"><?php echo getMemberBooksBorrowed($_SESSION['member']['nisn']); ?></h3>
                 </div>
                 <div class="stat-card returned">
                     <div class="stat-icon returned">
                         <i class="fas fa-undo"></i>
                     </div>
                     <p class="stat-title">Buku Dikembalikan</p>
-                    <h3 class="stat-value">12</h3>
+                    <h3 class="stat-value"><?php echo getMemberBooksReturned($_SESSION['member']['nisn']); ?></h3>
                 </div>
                 <div class="stat-card fines">
                     <div class="stat-icon fines">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
                     <p class="stat-title">Total Denda</p>
-                    <h3 class="stat-value">Rp 0</h3>
+                    <h3 class="stat-value"><?php echo (getMemberTotalFines($_SESSION['member']['nisn']) > 0) ? formatRupiah(getMemberTotalFines($_SESSION['member']['nisn'])) : 'Rp 0'; ?></h3>
                 </div>
             </div>
 
