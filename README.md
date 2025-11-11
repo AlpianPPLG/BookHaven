@@ -179,4 +179,246 @@ Fitur fitur yang terdapat didalam aplikasi ini :
 - **Assets**: `assets/` (logo, gambar)
 - **Upload**: `imgDB/` (cover buku)
 
+## Diagram Flowchart (Role-based)
+
+Di bawah ini saya menambahkan representasi alur aplikasi dalam bentuk diagram flowchart (Mermaid) yang menggambarkan dua peran utama: Admin dan Member (user). Kamu bisa menyalin blok Mermaid ini ke editor yang mendukung Mermaid (mis. VSCode + extension) untuk melihat diagram, atau menggunakan panduan "Draw.io" di bawah untuk membuat diagram visual yang sama.
+
+### 1) Flowchart — Admin (Mermaid)
+
+```mermaid
+flowchart LR
+  A[Login Admin] --> B[Dashboard Admin]
+  B --> B1[Manajemen Buku]
+  B --> B2[Manajemen Kategori]
+  B --> B3[Manajemen Member]
+  B --> B4[Daftar Peminjaman]
+  B4 --> B4a[Approve / Tolak Peminjaman]
+  B4a --> B5[Catat Peminjaman]
+  B --> B6[Daftar Pengembalian]
+  B6 --> B6a[Proses Pengembalian]
+  B6a --> B7[Cek Keterlambatan]
+  B7 -->|Terlambat| B8[Hitung Denda]
+  B7 -->|Tepat Waktu| B9[Update Status Kembali]
+  B8 --> B10[Catat Denda & Update DB]
+  B9 --> B11[Selesai]
+  B10 --> B11
+  B5 --> B11
+```
+
+### 2) Flowchart — Member (Mermaid)
+
+```mermaid
+flowchart LR
+  M1[Login Member] --> M2[Dashboard Member]
+  M2 --> M3[Browse Buku]
+  M3 --> M4[Detail Buku]
+  M4 --> M5[Ajukan Peminjaman]
+  M5 --> M6[Tunggu Persetujuan Admin]
+  M6 -->|Disetujui| M7[Peminjaman Aktif]
+  M6 -->|Ditolak| M8[Notifikasi Ditolak]
+  M7 --> M9[Notifikasi Jatuh Tempo]
+  M7 --> M10[Kembalikan Buku]
+  M10 --> M11[Cek Keterlambatan]
+  M11 -->|Tidak Terlambat| M12[Selesai]
+  M11 -->|Terlambat| M13[Denda Dihitung]
+  M13 --> M14[Bayar Denda]
+  M14 --> M12
+```
+
+### 3) Flowchart Gabungan (Swimlanes / Role lanes) — Ringkasan
+
+```mermaid
+flowchart TB
+  subgraph MEMBER
+    m_login[Login Member]
+    m_browse[Browse & Detail Buku]
+    m_request[Ajukan Peminjaman]
+    m_wait[Tunggu Persetujuan]
+    m_active[Peminjaman Aktif]
+    m_return[Kembalikan Buku]
+    m_pay[Bayar Denda]
+  end
+
+  subgraph ADMIN
+    a_login[Login Admin]
+    a_dash[Dashboard Admin]
+    a_manage[Manajemen Buku/Member/Kategori]
+    a_review[Approve/Tolak Peminjaman]
+    a_process[Proses Pengembalian & Denda]
+  end
+
+  m_login --> m_browse --> m_request --> m_wait --> a_review
+  a_review -->|Disetujui| m_active
+  a_review -->|Ditolak| m_login
+  m_active --> m_return --> a_process
+  a_process -->|Terlambat| m_pay
+  a_process -->|Tepat Waktu| m_login
+```
+
+Catatan: Mermaid di atas bersifat ringkasan; kamu dapat mengembangkan node lebih rinci (mis. validasi stok buku, cek duplikasi peminjaman, notifikasi email/SMS, dsb.).
+
+---
+
+Panduan cepat membuat diagram serupa di draw.io (di-desain manual)
+
+1. Buka https://app.diagrams.net/ (draw.io) → "Create New Diagram" → pilih template "Flowchart" atau "Blank Diagram".
+2. Tambahkan dua swimlane atau dua kolom besar: kiri untuk "Member", kanan untuk "Admin".
+3. Buat kotak (rectangle) untuk setiap langkah utama (Login, Dashboard, Browse, Request Loan, Approve, Record Loan, Return, Check Late, Calculate Fine, Pay Fine).
+4. Sambungkan kotak dengan panah (connectors). Gunakan label pada panah untuk kondisi bercabang (mis. "Disetujui" / "Ditolak", "Terlambat" / "Tepat Waktu").
+5. Gunakan warna berbeda untuk tipe node: aksi (biru), keputusan (diamond/kuning), success/akhir (hijau), error/penolakan (merah).
+6. Tambahkan ikon kecil (opsional) untuk memperjelas (mis. user icon, book icon, money icon).
+7. Setelah selesai: File → Export As → PNG/SVG/PDF untuk disimpan atau dibagikan.
+
+Mapping cepat (Mermaid node → draw.io shape rekomendasi):
+- Login / Dashboard / Browse / Detail / Manage → Rectangle
+- Approve / Process / Record → Rectangle (atau rounded)
+- Cek Keterlambatan → Diamond (decision)
+- Denda / Bayar Denda → Rectangle with currency icon
+
+Tips praktis saat membuat di draw.io:
+- Aktifkan grid & snap untuk merapikan tata letak.
+- Gunakan "Arrange → Auto Layout" jika elemen tidak rapi.
+- Beri nama (label) setiap swimlane untuk memperjelas peran.
+- Simpan versi berkala (File → Save as) agar bisa rollback.
+
+---
+
+Saran pengembangan terkait alur yang dapat memperkaya diagram / aplikasi:
+- Notifikasi otomatis (email / WhatsApp / push) untuk pengingat jatuh tempo.
+- Integrasi barcode/RFID untuk percepatan proses pinjam/kembali.
+- Role tambahan: Petugas Perpustakaan terpisah dari Admin (approve vs operasional).
+- Laporan & ekspor (CSV/PDF) untuk monitoring denda, peminjaman populer, inventaris.
+- Sistem reservasi buku (pre-booking jika stok 0).
+- API publik/internal untuk mobile app atau integrasi pihak ketiga.
+
+---
+
 Created by Alpian - Student At SMKN 7 Samarinda
+
+## Flowchart XML
+
+Berikut adalah flowchart XML yang mencakup semua fitur admin dan user berdasarkan struktur proyek:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="User and Admin Flowchart">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Swimlane for User -->
+        <mxCell id="swim_user" value="USER (Member)" style="swimlane;html=1;container=1;startSize=30;horizontal=0;strokeColor=#2E86C1;fillColor=#EAF2FB;fontSize=14;fontColor=#0B2E59" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="420" height="740" as="geometry"/>
+        </mxCell>
+
+        <!-- Swimlane for Admin -->
+        <mxCell id="swim_admin" value="ADMIN" style="swimlane;html=1;container=1;startSize=30;horizontal=0;strokeColor=#196F3D;fillColor=#E9F7EF;fontSize=14;fontColor=#07351A" vertex="1" parent="1">
+          <mxGeometry x="420" y="0" width="420" height="740" as="geometry"/>
+        </mxCell>
+
+        <!-- USER Nodes -->
+        <mxCell id="u1" value="Login User" style="rounded=1;fillColor=#D6EAF8;strokeColor=#2E86C1" vertex="1" parent="swim_user">
+          <mxGeometry x="60" y="50" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u2" value="Browse Buku" style="rounded=1;fillColor=#D6EAF8;strokeColor=#2E86C1" vertex="1" parent="swim_user">
+          <mxGeometry x="60" y="120" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u3" value="Pinjam Buku" style="rounded=1;fillColor=#D6EAF8;strokeColor=#2E86C1" vertex="1" parent="swim_user">
+          <mxGeometry x="60" y="190" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u4" value="Peminjaman Aktif" style="rounded=1;fillColor=#D6EAF8;strokeColor=#2E86C1" vertex="1" parent="swim_user">
+          <mxGeometry x="60" y="260" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u5" value="Kembalikan Buku" style="rounded=1;fillColor=#D6EAF8;strokeColor=#2E86C1" vertex="1" parent="swim_user">
+          <mxGeometry x="60" y="330" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u6" value="Bayar Denda" style="rounded=1;fillColor=#D6EAF8;strokeColor=#2E86C1" vertex="1" parent="swim_user">
+          <mxGeometry x="60" y="400" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ADMIN Nodes -->
+        <mxCell id="a1" value="Login Admin" style="rounded=1;fillColor=#D4EFDF;strokeColor=#196F3D" vertex="1" parent="swim_admin">
+          <mxGeometry x="60" y="50" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a2" value="Dashboard Admin" style="rounded=1;fillColor=#D4EFDF;strokeColor=#196F3D" vertex="1" parent="swim_admin">
+          <mxGeometry x="60" y="120" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a3" value="Kelola Buku" style="rounded=1;fillColor=#D4EFDF;strokeColor=#196F3D" vertex="1" parent="swim_admin">
+          <mxGeometry x="60" y="190" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a4" value="Kelola Member" style="rounded=1;fillColor=#D4EFDF;strokeColor=#196F3D" vertex="1" parent="swim_admin">
+          <mxGeometry x="60" y="260" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a5" value="Kelola Peminjaman" style="rounded=1;fillColor=#D4EFDF;strokeColor=#196F3D" vertex="1" parent="swim_admin">
+          <mxGeometry x="60" y="330" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a6" value="Kelola Pengembalian" style="rounded=1;fillColor=#D4EFDF;strokeColor=#196F3D" vertex="1" parent="swim_admin">
+          <mxGeometry x="60" y="400" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a7" value="Kelola Denda" style="rounded=1;fillColor=#D4EFDF;strokeColor=#196F3D" vertex="1" parent="swim_admin">
+          <mxGeometry x="60" y="470" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Connectors -->
+        <mxCell id="e_u1_u2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_user" source="u1" target="u2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_u2_u3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_user" source="u2" target="u3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_u3_u4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_user" source="u3" target="u4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_u4_u5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_user" source="u4" target="u5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_u5_u6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_user" source="u5" target="u6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_a1_a2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_admin" source="a1" target="a2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_a2_a3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_admin" source="a2" target="a3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_a3_a4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_admin" source="a3" target="a4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_a4_a5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_admin" source="a4" target="a5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_a5_a6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_admin" source="a5" target="a6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_a6_a7" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#34495E;endArrow=block;html=1" edge="1" parent="swim_admin" source="a6" target="a7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+```
