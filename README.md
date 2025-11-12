@@ -263,7 +263,7 @@ Panduan cepat membuat diagram serupa di draw.io (di-desain manual)
 
 1. Buka https://app.diagrams.net/ (draw.io) → "Create New Diagram" → pilih template "Flowchart" atau "Blank Diagram".
 2. Tambahkan dua swimlane atau dua kolom besar: kiri untuk "Member", kanan untuk "Admin".
-3. Buat kotak (rectangle) untuk setiap langkah utama (Login, Dashboard, Browse, Request Loan, Approve, Record Loan, Return, Check Late, Calculate Fine, Pay Fine).
+3. Buat kotak (rectangle) untuk setiap langkah utama (Login, Dashboard, Browse, Detail, Manage, Approve, Record Loan, Return, Check Late, Calculate Fine, Pay Fine).
 4. Sambungkan kotak dengan panah (connectors). Gunakan label pada panah untuk kondisi bercabang (mis. "Disetujui" / "Ditolak", "Terlambat" / "Tepat Waktu").
 5. Gunakan warna berbeda untuk tipe node: aksi (biru), keputusan (diamond/kuning), success/akhir (hijau), error/penolakan (merah).
 6. Tambahkan ikon kecil (opsional) untuk memperjelas (mis. user icon, book icon, money icon).
@@ -422,3 +422,128 @@ Berikut adalah flowchart XML yang mencakup semua fitur admin dan user berdasarka
   </diagram>
 </mxfile>
 ```
+
+# Database Struktur dan Penjelasan
+
+## Informasi Umum
+Database ini digunakan untuk sistem perpustakaan sekolah. Database ini terdiri dari beberapa tabel yang saling berelasi untuk mengelola data admin, buku, kategori buku, member, peminjaman, dan pengembalian.
+
+### Nama Database
+- **Nama Database**: `sistem-perpustakaan`
+
+### Tabel dan Struktur
+
+#### 1. Tabel `admin`
+- **Deskripsi**: Menyimpan data admin yang memiliki akses ke sistem.
+- **Kolom**:
+  - `id` (int, Primary Key, Auto Increment): ID unik untuk admin.
+  - `nama_admin` (varchar(255)): Nama admin.
+  - `password` (varchar(25)): Password admin.
+  - `kode_admin` (varchar(12), Unique): Kode unik untuk admin.
+  - `no_tlp` (varchar(13)): Nomor telepon admin.
+
+#### 2. Tabel `buku`
+- **Deskripsi**: Menyimpan data buku yang tersedia di perpustakaan.
+- **Kolom**:
+  - `cover` (varchar(255)): Path gambar cover buku.
+  - `id_buku` (varchar(20), Primary Key): ID unik buku.
+  - `kategori` (varchar(255), Foreign Key): Kategori buku, merujuk ke tabel `kategori_buku`.
+  - `judul` (varchar(255)): Judul buku.
+  - `pengarang` (varchar(255)): Nama pengarang buku.
+  - `penerbit` (varchar(255)): Nama penerbit buku.
+  - `tahun_terbit` (date): Tahun terbit buku.
+  - `jumlah_halaman` (int): Jumlah halaman buku.
+  - `buku_deskripsi` (text): Deskripsi buku.
+
+#### 3. Tabel `kategori_buku`
+- **Deskripsi**: Menyimpan kategori buku.
+- **Kolom**:
+  - `kategori` (varchar(255), Primary Key): Nama kategori buku.
+
+#### 4. Tabel `member`
+- **Deskripsi**: Menyimpan data anggota perpustakaan.
+- **Kolom**:
+  - `nisn` (int, Primary Key): Nomor Induk Siswa Nasional.
+  - `kode_member` (varchar(12), Unique): Kode unik untuk member.
+  - `nama` (varchar(255)): Nama member.
+  - `password` (varchar(255)): Password member (terenkripsi).
+  - `jenis_kelamin` (varchar(20)): Jenis kelamin member.
+  - `kelas` (varchar(5)): Kelas member.
+  - `jurusan` (varchar(50)): Jurusan member.
+  - `no_tlp` (varchar(15)): Nomor telepon member.
+  - `tgl_pendaftaran` (date): Tanggal pendaftaran member.
+
+#### 5. Tabel `peminjaman`
+- **Deskripsi**: Menyimpan data peminjaman buku oleh member.
+- **Kolom**:
+  - `id_peminjaman` (int, Primary Key, Auto Increment): ID unik peminjaman.
+  - `id_buku` (varchar(20), Foreign Key): ID buku yang dipinjam.
+  - `nisn` (int, Foreign Key): NISN member yang meminjam.
+  - `id_admin` (int, Foreign Key): ID admin yang memproses peminjaman.
+  - `tgl_peminjaman` (date): Tanggal peminjaman.
+  - `tgl_pengembalian` (date): Tanggal pengembalian yang direncanakan.
+
+#### 6. Tabel `pengembalian`
+- **Deskripsi**: Menyimpan data pengembalian buku.
+- **Kolom**:
+  - `id_pengembalian` (int, Primary Key, Auto Increment): ID unik pengembalian.
+  - `id_peminjaman` (int, Foreign Key): ID peminjaman terkait.
+  - `id_buku` (varchar(20), Foreign Key): ID buku yang dikembalikan.
+  - `nisn` (int, Foreign Key): NISN member yang mengembalikan.
+  - `id_admin` (int, Foreign Key): ID admin yang memproses pengembalian.
+  - `buku_kembali` (date): Tanggal buku dikembalikan.
+  - `keterlambatan` (enum('YA','TIDAK')): Status keterlambatan pengembalian.
+  - `denda` (int): Jumlah denda jika ada keterlambatan.
+
+### Relasi Antar Tabel
+- **`buku`** memiliki relasi dengan **`kategori_buku`** melalui kolom `kategori`.
+- **`peminjaman`** memiliki relasi dengan:
+  - **`buku`** melalui kolom `id_buku`.
+  - **`member`** melalui kolom `nisn`.
+  - **`admin`** melalui kolom `id_admin`.
+- **`pengembalian`** memiliki relasi dengan:
+  - **`peminjaman`** melalui kolom `id_peminjaman`.
+  - **`buku`** melalui kolom `id_buku`.
+  - **`member`** melalui kolom `nisn`.
+  - **`admin`** melalui kolom `id_admin`.
+
+### Contoh Query
+
+#### 1. Menambahkan Buku Baru
+```sql
+INSERT INTO buku (cover, id_buku, kategori, judul, pengarang, penerbit, tahun_terbit, jumlah_halaman, buku_deskripsi)
+VALUES ('cover.jpg', 'buku01', 'informatika', 'Belajar SQL', 'John Doe', 'Tech Publisher', '2025-01-01', 300, 'Panduan lengkap belajar SQL.');
+```
+
+#### 2. Melihat Daftar Buku Berdasarkan Kategori
+```sql
+SELECT * FROM buku WHERE kategori = 'informatika';
+```
+
+#### 3. Melihat Data Peminjaman Aktif
+```sql
+SELECT p.id_peminjaman, b.judul, m.nama, p.tgl_peminjaman, p.tgl_pengembalian
+FROM peminjaman p
+JOIN buku b ON p.id_buku = b.id_buku
+JOIN member m ON p.nisn = m.nisn
+WHERE p.tgl_pengembalian >= CURDATE();
+```
+
+#### 4. Melihat Data Pengembalian dengan Keterlambatan
+```sql
+SELECT pg.id_pengembalian, b.judul, m.nama, pg.buku_kembali, pg.denda
+FROM pengembalian pg
+JOIN buku b ON pg.id_buku = b.id_buku
+JOIN member m ON pg.nisn = m.nisn
+WHERE pg.keterlambatan = 'YA';
+```
+
+### Praktik Terbaik
+1. **Keamanan**: Gunakan prepared statements untuk mencegah SQL Injection.
+2. **Indexing**: Pastikan kolom yang sering digunakan dalam pencarian memiliki indeks.
+3. **Backup**: Lakukan backup database secara berkala.
+4. **Validasi Data**: Validasi input dari pengguna sebelum disimpan ke database.
+
+---
+
+Dokumentasi ini memberikan gambaran lengkap tentang struktur database dan penggunaannya dalam sistem perpustakaan sekolah.
