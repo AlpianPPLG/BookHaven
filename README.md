@@ -1,3 +1,53 @@
+# Panduan Instalasi dan Penggunaan Aplikasi Sistem Perpustakaan Sekolah
+
+## Persyaratan Sistem
+- XAMPP (Apache, MySQL, PHP) versi terbaru
+- Browser modern (Chrome, Firefox, Edge, dsb)
+
+## Langkah Instalasi
+1. **Download/Clone Project**
+   - Unduh atau clone repository ini ke komputer Anda.
+2. **Pindahkan ke htdocs**
+   - Salin folder `Sistem-Perpustakaan-Sekolah` ke dalam folder `htdocs` di direktori instalasi XAMPP Anda (biasanya `C:/xampp/htdocs/`).
+3. **Import Database**
+   - Buka XAMPP Control Panel, aktifkan Apache dan MySQL.
+   - Buka browser, akses `http://localhost/phpmyadmin`.
+   - Buat database baru dengan nama `perpustakaan`.
+   - Import file `database/perpustakaan.sql` ke database tersebut.
+4. **Konfigurasi Koneksi Database**
+   - Buka file `config/config.php`.
+   - Pastikan pengaturan host, username, password, dan nama database sudah sesuai dengan konfigurasi MySQL Anda.
+5. **Jalankan Aplikasi**
+   - Buka browser dan akses `http://localhost/Sistem-Perpustakaan-Sekolah`.
+
+## Cara Penggunaan Aplikasi
+
+### Sebagai Admin
+1. Login melalui halaman admin dengan username dan password admin yang sudah terdaftar di database.
+2. Setelah login, Anda dapat:
+   - Menambah, mengedit, dan menghapus data buku
+   - Mengelola data anggota/member
+   - Mengelola transaksi peminjaman dan pengembalian buku
+   - Melihat dan mengelola denda keterlambatan
+3. Gunakan menu navigasi di dashboard admin untuk mengakses fitur-fitur tersebut.
+
+### Sebagai Member/Siswa
+1. Daftar akun melalui halaman pendaftaran member.
+2. Login menggunakan akun yang sudah dibuat.
+3. Setelah login, Anda dapat:
+   - Melihat daftar buku dan detail buku
+   - Melakukan peminjaman buku
+   - Melakukan pengembalian buku
+   - Melihat status peminjaman, pengembalian, dan denda
+4. Ikuti petunjuk pada setiap halaman untuk melakukan transaksi.
+
+## Catatan Penting
+- Pastikan XAMPP (Apache & MySQL) selalu aktif saat menggunakan aplikasi.
+- Jika terjadi error koneksi database, cek kembali konfigurasi di `config/config.php`.
+- Untuk menambah admin baru, lakukan langsung melalui database (phpMyAdmin) pada tabel `admin`.
+
+---
+
 # Sistem-Perpustakaan-Sekolah
 Nama Project ini adalah : BookHaven
 
