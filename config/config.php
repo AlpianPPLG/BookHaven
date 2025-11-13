@@ -1,25 +1,36 @@
 <?php
-$host = "127.0.0.1";
-$username = "root";
-$password = "";
-$database_name = "sistem-perpustakaan";
-$connection = mysqli_connect($host, $username, $password, $database_name);
+// =========================
+// File konfigurasi koneksi database dan fungsi utama aplikasi
+// =========================
 
-// MENAMPILKAN DATA KATEGORI BUKU
+// Konfigurasi koneksi database
+$host = "127.0.0.1"; // Host database
+$username = "root"; // Username database
+$password = ""; // Password database
+$database_name = "sistem-perpustakaan"; // Nama database
+$connection = mysqli_connect($host, $username, $password, $database_name); // Membuka koneksi
+
+// =========================
+// Fungsi: Menampilkan data dari query SQL
+// Parameter: $dataKategori (query SQL)
+// Return: array data hasil query
 function queryReadData($dataKategori) {
   global $connection;
-  $result = mysqli_query($connection, $dataKategori);
+  $result = mysqli_query($connection, $dataKategori); // Eksekusi query
   $items = [];
   while($item = mysqli_fetch_assoc($result)) {
-    $items[] = $item;
-  }     
-  return $items;
+    $items[] = $item; // Simpan setiap baris hasil ke array
+  }
+  return $items; // Kembalikan array hasil
 }
 
-// Menambahkan data buku 
+// =========================
+// Fungsi: Menambah data buku baru ke database
+// Parameter: $dataBuku (array data buku)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function tambahBuku($dataBuku) {
   global $connection;
-  
+  // Upload cover buku
   $cover = upload();
   $idBuku = htmlspecialchars($dataBuku["id_buku"]);
   $kategoriBuku = $dataBuku["kategori"];
@@ -29,19 +40,19 @@ function tambahBuku($dataBuku) {
   $tahunTerbit = $dataBuku["tahun_terbit"];
   $jumlahHalaman = $dataBuku["jumlah_halaman"];
   $deskripsiBuku = htmlspecialchars($dataBuku["buku_deskripsi"]);
-  
+  // Jika upload cover gagal
   if(!$cover) {
     return 0;
-  } 
-  
+  }
+  // Query insert data buku
   $queryInsertDataBuku = "INSERT INTO buku VALUES('$cover', '$idBuku', '$kategoriBuku', '$judulBuku', '$pengarangBuku', '$penerbitBuku', '$tahunTerbit', $jumlahHalaman, '$deskripsiBuku')";
-  
   mysqli_query($connection, $queryInsertDataBuku);
   return mysqli_affected_rows($connection);
-  
-}       
+}
 
-// Function upload gambar 
+// =========================
+// Fungsi: Upload file cover buku
+// Return: nama file cover jika sukses, 0 jika gagal
 function upload() {
   $namaFile = $_FILES["cover"]["name"];
   $ukuranFile = $_FILES["cover"]["size"];
@@ -92,8 +103,12 @@ function upload() {
   return $namaFileBaru;
 } 
 
-// MENAMPILKAN SESUATU SESUAI DENGAN INPUTAN USER PADA * SEARCH ENGINE *
-function search($keyword) {
+// =========================
+// Fungsi: Mencari data buku, member, atau pengembalian berdasarkan keyword
+// Parameter: $keyword (string yang dicari)
+// Return: array data hasil pencarian
+function search($keyword): array
+{
   // search data buku
   $querySearch = "SELECT * FROM buku 
   WHERE
@@ -118,6 +133,10 @@ function search($keyword) {
   return queryReadData($dataPengembalian);
 }
 
+// =========================
+// Fungsi: Mencari data member berdasarkan keyword
+// Parameter: $keyword (string yang dicari)
+// Return: array data hasil pencarian
 function searchMember ($keyword) {
      // search member terdaftar || admin
    $searchMember = "SELECT * FROM member WHERE 
@@ -130,7 +149,10 @@ function searchMember ($keyword) {
 }
 
 
-// DELETE DATA Buku
+// =========================
+// Fungsi: Menghapus data buku berdasarkan ID
+// Parameter: $bukuId (ID buku yang akan dihapus)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function delete($bukuId) {
   global $connection;
   $queryDeleteBuku = "DELETE FROM buku WHERE id_buku = '$bukuId'
@@ -140,7 +162,10 @@ function delete($bukuId) {
   return mysqli_affected_rows($connection);
 }
 
-// UPDATE || EDIT DATA BUKU 
+// =========================
+// Fungsi: Memperbarui data buku
+// Parameter: $dataBuku (array data buku yang diperbarui)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function updateBuku($dataBuku) {
   global $connection;
 
@@ -179,7 +204,10 @@ function updateBuku($dataBuku) {
   return mysqli_affected_rows($connection);
 }
 
-// Hapus member yang terdaftar
+// =========================
+// Fungsi: Menghapus data member berdasarkan NISN
+// Parameter: $nisnMember (NISN member yang akan dihapus)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function deleteMember($nisnMember) {
   global $connection;
   
@@ -188,7 +216,10 @@ function deleteMember($nisnMember) {
   return mysqli_affected_rows($connection);
 }
 
-// Hapus history pengembalian data BUKU
+// =========================
+// Fungsi: Menghapus data pengembalian buku berdasarkan ID pengembalian
+// Parameter: $idPengembalian (ID pengembalian yang akan dihapus)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function deleteDataPengembalian($idPengembalian) {
   global $connection;
   
@@ -197,7 +228,10 @@ function deleteDataPengembalian($idPengembalian) {
   return mysqli_affected_rows($connection);
 }
 
-// Peminjaman BUKU
+// =========================
+// Fungsi: Meminjam buku
+// Parameter: $dataBuku (array data peminjaman buku)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function pinjamBuku($dataBuku) {
   global $connection;
   
@@ -232,7 +266,10 @@ function pinjamBuku($dataBuku) {
   return mysqli_affected_rows($connection);
 }
 
-// Pengembalian BUKU
+// =========================
+// Fungsi: Mengembalikan buku
+// Parameter: $dataBuku (array data pengembalian buku)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function pengembalian($dataBuku) {
   global $connection;
   
@@ -264,6 +301,10 @@ function pengembalian($dataBuku) {
   return mysqli_affected_rows($connection);
 }
 
+// =========================
+// Fungsi: Membayar denda
+// Parameter: $data (array data pembayaran denda)
+// Return: jumlah baris yang terpengaruh (1 jika sukses, 0 jika gagal)
 function bayarDenda($data) {
   global $connection;
   $idPengembalian = $data["id_pengembalian"];
@@ -281,8 +322,13 @@ if (!$connection) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
+// =========================
 // DASHBOARD STATISTICS FUNCTIONS
-// Get total members count
+// =========================
+
+// =========================
+// Fungsi: Mengambil total anggota terdaftar
+// Return: jumlah total anggota
 function getTotalMembers() {
   global $connection;
   if (!$connection) return 0;
@@ -296,7 +342,9 @@ function getTotalMembers() {
   return $data['total'] ?? 0;
 }
 
-// Get total books count
+// =========================
+// Fungsi: Mengambil total buku terdaftar
+// Return: jumlah total buku
 function getTotalBooks() {
   global $connection;
   if (!$connection) return 0;
@@ -310,7 +358,9 @@ function getTotalBooks() {
   return $data['total'] ?? 0;
 }
 
-// Get active loans count (peminjaman without corresponding pengembalian)
+// =========================
+// Fungsi: Mengambil jumlah pinjaman aktif
+// Return: jumlah total pinjaman aktif
 function getActiveLoans() {
   global $connection;
   if (!$connection) return 0;
@@ -328,7 +378,9 @@ function getActiveLoans() {
   return $data['total'] ?? 0;
 }
 
-// Get returns today count
+// =========================
+// Fungsi: Mengambil jumlah pengembalian hari ini
+// Return: jumlah total pengembalian hari ini
 function getReturnsToday() {
   global $connection;
   if (!$connection) return 0;
@@ -343,7 +395,9 @@ function getReturnsToday() {
   return $data['total'] ?? 0;
 }
 
-// Get total fines sum
+// =========================
+// Fungsi: Mengambil total denda yang belum dibayar
+// Return: jumlah total denda
 function getTotalFines() {
   global $connection;
   if (!$connection) return 0;
@@ -357,13 +411,23 @@ function getTotalFines() {
   return $data['total'] ?? 0;
 }
 
-// Format number to Indonesian Rupiah
-function formatRupiah($number) {
+// =========================
+// Fungsi: Memformat angka ke dalam bentuk Rupiah
+// Parameter: $number (angka yang akan diformat)
+// Return: string dalam format Rupiah
+function formatRupiah($number): string
+{
   return 'Rp ' . number_format($number, 0, ',', '.');
 }
 
+// =========================
 // MEMBER DASHBOARD STATISTICS FUNCTIONS
-// Get books currently borrowed by a specific member
+// =========================
+
+// =========================
+// Fungsi: Mengambil jumlah buku yang sedang dipinjam oleh anggota tertentu
+// Parameter: $nisn (NISN anggota)
+// Return: jumlah total buku yang dipinjam
 function getMemberBooksBorrowed($nisn) {
   global $connection;
   if (!$connection) return 0;
@@ -381,7 +445,10 @@ function getMemberBooksBorrowed($nisn) {
   return $data['total'] ?? 0;
 }
 
-// Get books returned by a specific member
+// =========================
+// Fungsi: Mengambil jumlah buku yang telah dikembalikan oleh anggota tertentu
+// Parameter: $nisn (NISN anggota)
+// Return: jumlah total buku yang telah dikembalikan
 function getMemberBooksReturned($nisn) {
   global $connection;
   if (!$connection) return 0;
@@ -397,7 +464,10 @@ function getMemberBooksReturned($nisn) {
   return $data['total'] ?? 0;
 }
 
-// Get total unpaid fines for a specific member
+// =========================
+// Fungsi: Mengambil total denda yang belum dibayar oleh anggota tertentu
+// Parameter: $nisn (NISN anggota)
+// Return: jumlah total denda
 function getMemberTotalFines($nisn) {
   global $connection;
   if (!$connection) return 0;

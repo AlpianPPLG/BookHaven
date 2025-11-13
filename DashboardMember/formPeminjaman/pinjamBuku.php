@@ -1,6 +1,7 @@
 <?php 
 session_start();
 
+// Cek apakah user sudah login, jika belum arahkan ke halaman sign in
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../../sign/member/sign_in.php");
   exit;

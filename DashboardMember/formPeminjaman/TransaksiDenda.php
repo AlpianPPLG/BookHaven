@@ -1,12 +1,18 @@
 <?php 
+// =========================
+// Halaman transaksi denda member
+// Menampilkan riwayat denda yang harus dibayar oleh member
+// =========================
 session_start();
-
+// Cek apakah member sudah login
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../../sign/member/sign_in.php");
   exit;
 }
 require "../../config/config.php"; 
+// Ambil NISN member dari session
 $nisnSiswa = $_SESSION["member"]["nisn"];
+// Ambil data denda yang belum dibayar oleh member
 $dataDenda = queryReadData("SELECT pengembalian.id_pengembalian, pengembalian.id_peminjaman, pengembalian.id_buku, buku.judul, pengembalian.nisn, member.nama, admin.nama_admin, pengembalian.buku_kembali, pengembalian.keterlambatan, pengembalian.denda
 FROM pengembalian
 INNER JOIN buku ON pengembalian.id_buku = buku.id_buku

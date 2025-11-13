@@ -1,19 +1,25 @@
 <?php 
+// =========================
+// Halaman transaksi pengembalian member
+// Menampilkan riwayat pengembalian buku oleh member
+// =========================
 session_start();
-
+// Cek apakah member sudah login
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../../sign/member/sign_in.php");
   exit;
 }
 require "../../config/config.php";
+// Ambil NISN member dari session
 $akunMember = $_SESSION["member"]["nisn"];
+// Ambil data pengembalian buku oleh member
 $dataPengembalian = queryReadData("SELECT pengembalian.id_pengembalian, pengembalian.id_buku, buku.judul, buku.kategori, pengembalian.nisn, member.nama, admin.nama_admin, pengembalian.buku_kembali, pengembalian.keterlambatan, pengembalian.denda
 FROM pengembalian
 INNER JOIN buku ON pengembalian.id_buku = buku.id_buku
 INNER JOIN member ON pengembalian.nisn = member.nisn
 INNER JOIN admin ON pengembalian.id_admin = admin.id
 WHERE pengembalian.nisn = $akunMember");
-
+// Jika tombol search ditekan, lakukan pencarian pengembalian berdasarkan keyword
 if(isset($_POST["search"]) ) {
   $dataPengembalian = search($_POST["keyword"]);
 }

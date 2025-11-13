@@ -1,14 +1,20 @@
 <?php
+// =========================
+// Halaman daftar buku admin
+// Menampilkan seluruh data buku dan fitur pencarian
+// =========================
 require "../../config/config.php";
+
+// Ambil seluruh data buku dari database
 $buku = queryReadData("SELECT * FROM buku");
 
-// mengaktifkan tombol search engine
+// Jika tombol search ditekan, lakukan pencarian buku berdasarkan keyword
 if(isset($_POST["search"]) ) {
-  //buat variabel dan ambil apa saja yg diketikkan user di dalam input dan kirimkan ke function search.
+  // Ambil keyword dari input user dan cari buku yang sesuai
   $buku = search($_POST["keyword"]);
 }
 
-// Hitung total buku
+// Hitung total buku yang ditampilkan
 $totalBuku = count($buku);
 ?>
 

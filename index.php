@@ -1,3 +1,7 @@
+<!-- =========================
+     Halaman utama landing page aplikasi
+     Menampilkan menu navigasi, deskripsi aplikasi, dan akses login
+     ========================= -->
 <!DOCTYPE html>
 <html lang="en">
 

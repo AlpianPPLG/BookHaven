@@ -1,29 +1,30 @@
 <?php
+// =========================
+// Halaman update/edit buku admin
+// Form untuk mengedit data buku berdasarkan ID
+// =========================
 require "../../config/config.php";
-// Ambil data dari url
+// Ambil ID buku dari URL
 $review = $_GET["idReview"];
+// Ambil data buku yang akan diedit
 $reviewData = queryReadData("SELECT * FROM buku WHERE id_buku = '$review'")[0];
-
-// ==== FASE PERCOBAAN DEBUGGING =====
-/*
-$reviewKategori = queryReadData("SELECT * FROM buku WHERE kategori = '$review'");
-*/
-// Data kategori buku
-$kategori = queryReadData("SELECT * FROM kategori_buku"); 
-
+// Ambil seluruh kategori buku
+$kategori = queryReadData("SELECT * FROM kategori_buku");
+// Jika form update disubmit
 if(isset($_POST["update"]) ) {
-  
+  // Proses update data buku
   if(updateBuku($_POST) > 0) {
+    // Jika berhasil
     echo "<script>
     alert('Data buku berhasil diupdate!');
     document.location.href = 'daftarBuku.php';
     </script>";
   }else {
+    // Jika gagal
     echo "<script>
     alert('Data buku gagal diupdate!');
     </script>";
   }
-  
 }
 ?>
 

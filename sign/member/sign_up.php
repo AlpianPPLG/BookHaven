@@ -1,7 +1,8 @@
 <?php 
 require "../../loginSystem/connect.php";
 if(isset($_POST["signUp"]) ) {
-  
+
+  // Cek apakah sign up berhasil
   if(signUp($_POST) > 0) {
     echo "<script>
     alert('Sign Up berhasil!')

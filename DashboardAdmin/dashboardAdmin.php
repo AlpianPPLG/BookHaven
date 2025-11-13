@@ -1,12 +1,17 @@
 <?php
+// =========================
+// Dashboard utama Admin
+// Menampilkan statistik dan menu utama admin
+// =========================
 session_start();
 
+// Cek apakah admin sudah login
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../sign/admin/sign_in.php");
   exit;
 }
 
-// Include database configuration
+// Include konfigurasi database
 require_once '../config/config.php';
 
 ?>

@@ -1,14 +1,21 @@
 <?php
+// =========================
+// Halaman daftar member admin
+// Menampilkan seluruh data member dan fitur pencarian
+// =========================
 session_start();
 
+// Cek apakah admin sudah login
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../../sign/admin/sign_in.php");
   exit;
 }
 require "../../config/config.php";
 
+// Ambil seluruh data member dari database
 $member = queryReadData("SELECT * FROM member");
 
+// Jika tombol search ditekan, lakukan pencarian member berdasarkan keyword
 if(isset($_POST["search"]) ) {
   $member = searchMember($_POST["keyword"]);
 }

@@ -1,11 +1,15 @@
 <?php 
-//Halaman pengelolaan pengembalian Buku Perustakaaan
+// =========================
+// Halaman daftar pengembalian buku admin
+// Menampilkan seluruh data pengembalian buku
+// =========================
 require "../../config/config.php";
+// Ambil seluruh data pengembalian beserta relasi buku, member, dan admin
 $dataPeminjam = queryReadData("SELECT pengembalian.id_pengembalian, pengembalian.id_buku, buku.judul, buku.kategori, pengembalian.nisn, member.nama, member.kelas, member.jurusan, admin.nama_admin, pengembalian.buku_kembali, pengembalian.keterlambatan, pengembalian.denda
 FROM pengembalian
 INNER JOIN buku ON pengembalian.id_buku = buku.id_buku
 INNER JOIN member ON pengembalian.nisn = member.nisn
-INNER JOIN admin ON pengembalian.id_admin = admin.id")
+INNER JOIN admin ON pengembalian.id_admin = admin.id");
 ?>
 
 <!DOCTYPE html>

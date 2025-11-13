@@ -1,6 +1,10 @@
 <?php
-// Halaman pengelolaan peminjaman buku perpustakaan
+// =========================
+// Halaman daftar peminjaman buku admin
+// Menampilkan seluruh data peminjaman buku
+// =========================
 require "../../config/config.php";
+// Ambil seluruh data peminjaman beserta relasi member dan buku
 $dataPeminjam = queryReadData("SELECT peminjaman.id_peminjaman, peminjaman.id_buku, buku.judul, peminjaman.nisn, member.nama, member.kelas, member.jurusan, peminjaman.id_admin,  peminjaman.tgl_peminjaman, peminjaman.tgl_pengembalian 
 FROM peminjaman 
 INNER JOIN member ON peminjaman.nisn = member.nisn

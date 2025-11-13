@@ -1,14 +1,17 @@
 <?php 
 session_start();
 
+// Cek apakah user sudah login, jika belum arahkan ke halaman sign in
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../../sign/member/sign_in.php");
   exit;
 }
 require "../../config/config.php";
 
+// Cek apakah tombol bayar ditekan
 if(isset($_POST["bayar"]) ) {
-  
+
+// Cek fungsi bayarDenda pada functions.php
   if(bayarDenda($_POST) > 0) {
     echo "<script>
     alert('Denda berhasil dibayar');

@@ -1,14 +1,21 @@
 <?php 
+// =========================
+// Halaman tambah buku admin
+// Form untuk menambah data buku baru ke database
+// =========================
 require "../../config/config.php";
-//$informatika = "informatika";
+// Ambil seluruh kategori buku dari database
 $kategori = queryReadData("SELECT * FROM kategori_buku");
+// Jika form tambah buku disubmit
 if(isset($_POST["tambah"]) ) {
-  
+  // Proses penambahan buku baru
   if(tambahBuku($_POST) > 0) {
+    // Jika berhasil
     echo "<script>
     alert('Data buku berhasil ditambahkan');
     </script>";
   }else {
+    // Jika gagal
     echo "<script>
     alert('Data buku gagal ditambahkan!');
     </script>";

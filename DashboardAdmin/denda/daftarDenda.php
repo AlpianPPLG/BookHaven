@@ -1,5 +1,10 @@
 <?php 
-require "../../config/config.php"; 
+// =========================
+// Halaman daftar denda admin
+// Menampilkan seluruh data denda yang belum dibayar
+// =========================
+require "../../config/config.php";
+// Ambil seluruh data denda beserta relasi buku, member, dan admin
 $dataDenda = queryReadData("SELECT pengembalian.id_pengembalian, pengembalian.id_buku, buku.judul, pengembalian.nisn, member.nama, member.jurusan, admin.nama_admin, pengembalian.buku_kembali, pengembalian.keterlambatan, pengembalian.denda
 FROM pengembalian
 INNER JOIN buku ON pengembalian.id_buku = buku.id_buku

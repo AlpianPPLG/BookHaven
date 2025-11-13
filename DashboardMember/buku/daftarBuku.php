@@ -1,40 +1,44 @@
 <?php
+// =========================
+// Halaman daftar buku member
+// Menampilkan seluruh data buku dan fitur filter kategori
+// =========================
 session_start();
 
+// Cek apakah member sudah login
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../../sign/member/sign_in.php");
   exit;
 }
 
 require "../../config/config.php";
-// query read semua buku
+
+// Ambil seluruh data buku dari database
 $buku = queryReadData("SELECT * FROM buku");
-//search buku
+
+// Jika tombol search ditekan, lakukan pencarian buku berdasarkan keyword
 if(isset($_POST["search"]) ) {
   $buku = search($_POST["keyword"]);
 }
-//read buku informatika
+
+// Filter buku berdasarkan kategori
 if(isset($_POST["informatika"]) ) {
-$buku = queryReadData("SELECT * FROM buku WHERE kategori = 'informatika'");
+  $buku = queryReadData("SELECT * FROM buku WHERE kategori = 'informatika'");
 }
-//read buku bisnis
 if(isset($_POST["bisnis"]) ) {
-$buku = queryReadData("SELECT * FROM buku WHERE kategori = 'bisnis'");
+  $buku = queryReadData("SELECT * FROM buku WHERE kategori = 'bisnis'");
 }
-//read buku filsafat
 if(isset($_POST["filsafat"]) ) {
-$buku = queryReadData("SELECT * FROM buku WHERE kategori = 'filsafat'");
+  $buku = queryReadData("SELECT * FROM buku WHERE kategori = 'filsafat'");
 }
-//read buku novel
 if(isset($_POST["novel"]) ) {
-$buku = queryReadData("SELECT * FROM buku WHERE kategori = 'novel'");
+  $buku = queryReadData("SELECT * FROM buku WHERE kategori = 'novel'");
 }
-//read buku sains
 if(isset($_POST["sains"]) ) {
-$buku = queryReadData("SELECT * FROM buku WHERE kategori = 'sains'");
+  $buku = queryReadData("SELECT * FROM buku WHERE kategori = 'sains'");
 }
 
-// Menentukan kategori aktif
+// Menentukan kategori aktif untuk highlight UI
 $activeCategory = "all";
 if(isset($_POST["informatika"])) $activeCategory = "informatika";
 if(isset($_POST["bisnis"])) $activeCategory = "bisnis";

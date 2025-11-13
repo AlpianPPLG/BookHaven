@@ -1,6 +1,12 @@
 <?php 
+// =========================
+// Halaman detail buku member
+// Menampilkan detail lengkap buku berdasarkan ID
+// =========================
 require "../../config/config.php";
+// Ambil ID buku dari URL
 $idBuku = $_GET["id"];
+// Query detail buku berdasarkan ID
 $query = queryReadData("SELECT * FROM buku WHERE id_buku = '$idBuku'");
 ?>
 <!DOCTYPE html>

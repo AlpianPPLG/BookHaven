@@ -1,4 +1,5 @@
-<?php 
+<?php
+global $connect;
 session_start();
 
 //Jika member sudah login, tidak boleh kembali ke halaman login ,kecuali logout
@@ -9,6 +10,7 @@ if(isset($_SESSION["signIn"]) ) {
 
 require "../../loginSystem/connect.php";
 
+// Cek apakah tombol sign in sudah ditekan
 if(isset($_POST["signIn"]) ) {
   
   $nama = strtolower($_POST["nama"]);
@@ -17,7 +19,8 @@ if(isset($_POST["signIn"]) ) {
   
   
   $result = mysqli_query($connect, "SELECT * FROM member WHERE nama = '$nama' AND nisn = $nisn");
-  
+
+  // cek nama & nisn
   if(mysqli_num_rows($result) === 1) {
     //cek pw 
     $pw = mysqli_fetch_assoc($result);

@@ -1,12 +1,17 @@
 <?php
+// =========================
+// Dashboard utama Member
+// Menampilkan statistik dan menu utama member
+// =========================
 session_start();
 
+// Cek apakah member sudah login
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../sign/member/sign_in.php");
   exit;
 }
 
-// Include database configuration
+// Include konfigurasi database
 require_once '../config/config.php';
 
 ?>

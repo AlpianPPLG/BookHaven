@@ -1,6 +1,8 @@
 <?php
+global $connect;
 session_start();
 
+// Cek apakah sudah login
 if(isset($_SESSION["signIn"]) ) {
   header("Location: ../../DashboardAdmin/dashboardAdmin.php");
   exit;
@@ -8,13 +10,15 @@ if(isset($_SESSION["signIn"]) ) {
 
 require "../../loginSystem/connect.php";
 
+// Login admin
 if(isset($_POST["signIn"]) ) {
   
   $nama = strtolower($_POST["nama_admin"]);
   $password = $_POST["password"];
   
   $result = mysqli_query($connect, "SELECT * FROM admin WHERE nama_admin = '$nama' AND password = '$password' ");
-  
+
+  // Cek nama dan password
   if(mysqli_num_rows($result) === 1) {
     //SET SESSION 
     $_SESSION["signIn"] = true;

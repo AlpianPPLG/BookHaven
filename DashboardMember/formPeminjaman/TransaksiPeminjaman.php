@@ -1,12 +1,18 @@
 <?php 
+// =========================
+// Halaman transaksi peminjaman member
+// Menampilkan riwayat peminjaman buku oleh member
+// =========================
 session_start();
-
+// Cek apakah member sudah login
 if(!isset($_SESSION["signIn"]) ) {
   header("Location: ../../sign/member/sign_in.php");
   exit;
 }
 require "../../config/config.php";
+// Ambil NISN member dari session
 $akunMember = $_SESSION["member"]["nisn"];
+// Ambil data peminjaman buku oleh member
 $dataPinjam = queryReadData("SELECT peminjaman.id_peminjaman, peminjaman.id_buku, buku.judul, peminjaman.nisn, member.nama, admin.nama_admin, peminjaman.tgl_peminjaman, peminjaman.tgl_pengembalian
 FROM peminjaman
 INNER JOIN buku ON peminjaman.id_buku = buku.id_buku
