@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+    <diagram id="flowchart1" name="Flowchart Perpustakaan">
+        <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="2000" math="0" shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+                <!-- Swimlane User -->
+                <mxCell id="swimlaneUser" value="User" style="swimlane;horizontal=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="650" height="1900" as="geometry" />
+                </mxCell>
+                <!-- Swimlane Admin -->
+                <mxCell id="swimlaneAdmin" value="Admin" style="swimlane;horizontal=0;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="40" width="600" height="1900" as="geometry" />
+                </mxCell>
+                <!-- USER FLOW -->
+                <!-- Start User -->
+                <mxCell id="u1" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="280" y="60" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- Landing Page -->
+                <mxCell id="u2" value="Landing Page" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="260" y="170" width="120" height="60" as="geometry" />
+                </mxCell>
+                <!-- Login User -->
+                <mxCell id="u3" value="Login User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="260" y="270" width="120" height="60" as="geometry" />
+                </mxCell>
+                <!-- Menu Utama User (Pilihan) -->
+                <mxCell id="u4" value="Menu Utama: Pilih Aksi" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="260" y="370" width="120" height="80" as="geometry" />
+                </mxCell>
+                <!-- Pilihan: Pinjam Buku (Kolom Kiri) -->
+                <mxCell id="u5" value="Pinjam Buku" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="50" y="490" width="120" height="60" as="geometry" />
+                </mxCell>
+                <!-- Input Data Pinjam -->
+                <mxCell id="u6" value="Input Data Peminjaman" style="rhombus;whiteSpace=wrap;html=1;shape=parallelogram;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="40" y="580" width="140" height="70" as="geometry" />
+                </mxCell>
+                <!-- Cek Ketersediaan Buku -->
+                <mxCell id="u7" value="Cek Ketersediaan Buku" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="40" y="680" width="140" height="60" as="geometry" />
+                </mxCell>
+                <!-- Buku Tersedia? -->
+                <mxCell id="u8" value="Buku Tersedia?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="55" y="780" width="110" height="80" as="geometry" />
+                </mxCell>
+                <!-- Proses Peminjaman -->
+                <mxCell id="u9" value="Proses Peminjaman" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="40" y="900" width="140" height="60" as="geometry" />
+                </mxCell>
+                <!-- Cetak Bukti Peminjaman -->
+                <mxCell id="u10" value="Cetak Bukti Peminjaman" style="rhombus;whiteSpace=wrap;html=1;shape=parallelogram;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="40" y="990" width="140" height="70" as="geometry" />
+                </mxCell>
+                <!-- Selesai Pinjam -->
+                <mxCell id="u11" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="60" y="1100" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- Buku Tidak Tersedia -->
+                <mxCell id="u12" value="Tampilkan Pesan: Buku Tidak Tersedia" style="rhombus;whiteSpace=wrap;html=1;shape=parallelogram;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="200" y="780" width="140" height="80" as="geometry" />
+                </mxCell>
+                <!-- Selesai Tidak Tersedia -->
+                <mxCell id="u13" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="220" y="900" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- Pilihan: Kembalikan Buku (Kolom Tengah) -->
+                <mxCell id="u14" value="Kembalikan Buku" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="260" y="490" width="120" height="60" as="geometry" />
+                </mxCell>
+                <!-- Input Data Pengembalian -->
+                <mxCell id="u15" value="Input Data Pengembalian" style="rhombus;whiteSpace=wrap;html=1;shape=parallelogram;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="250" y="580" width="140" height="70" as="geometry" />
+                </mxCell>
+                <!-- Cek Keterlambatan -->
+                <mxCell id="u16" value="Cek Keterlambatan" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="250" y="680" width="140" height="60" as="geometry" />
+                </mxCell>
+                <!-- Terlambat? -->
+                <mxCell id="u17" value="Terlambat?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="265" y="780" width="110" height="80" as="geometry" />
+                </mxCell>
+                <!-- Proses Denda -->
+                <mxCell id="u18" value="Proses Denda" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="250" y="900" width="140" height="60" as="geometry" />
+                </mxCell>
+                <!-- Bayar Denda -->
+                <mxCell id="u19" value="Bayar Denda" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="250" y="990" width="140" height="60" as="geometry" />
+                </mxCell>
+                <!-- Selesai Denda -->
+                <mxCell id="u20" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="270" y="1100" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- Tidak Terlambat -->
+                <mxCell id="u21" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="430" y="900" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- Pilihan: Bayar Denda (Kolom Kanan) -->
+                <mxCell id="u22" value="Bayar Denda" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="460" y="490" width="120" height="60" as="geometry" />
+                </mxCell>
+                <!-- Input Data Denda -->
+                <mxCell id="u23" value="Input Data Denda" style="rhombus;whiteSpace=wrap;html=1;shape=parallelogram;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="450" y="580" width="140" height="70" as="geometry" />
+                </mxCell>
+                <!-- Proses Pembayaran Denda -->
+                <mxCell id="u24" value="Proses Pembayaran Denda" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="450" y="680" width="140" height="60" as="geometry" />
+                </mxCell>
+                <!-- Selesai Bayar Denda -->
+                <mxCell id="u25" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneUser">
+                    <mxGeometry x="470" y="780" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- ADMIN FLOW -->
+                <!-- Start Admin -->
+                <mxCell id="a1" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneAdmin">
+                    <mxGeometry x="260" y="60" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- Login Admin -->
+                <mxCell id="a2" value="Login Admin" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneAdmin">
+                    <mxGeometry x="240" y="170" width="120" height="60" as="geometry" />
+                </mxCell>
+                <!-- Menu Admin (Pilihan) -->
+                <mxCell id="a3" value="Menu Admin: Pilih Aksi" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneAdmin">
+                    <mxGeometry x="240" y="270" width="120" height="80" as="geometry" />
+                </mxCell>
+                <!-- Kelola Buku -->
+                <mxCell id="a4" value="Kelola Buku&#10;(Tambah/Update/Hapus)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneAdmin">
+                    <mxGeometry x="60" y="380" width="140" height="70" as="geometry" />
+                </mxCell>
+                <!-- Kelola Member -->
+                <mxCell id="a5" value="Kelola Member" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneAdmin">
+                    <mxGeometry x="260" y="380" width="140" height="70" as="geometry" />
+                </mxCell>
+                <!-- Kelola Transaksi -->
+                <mxCell id="a6" value="Kelola Transaksi&#10;(Pinjam/Kembali/Denda)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="swimlaneAdmin">
+                    <mxGeometry x="460" y="380" width="140" height="70" as="geometry" />
+                </mxCell>
+                <!-- Logout Admin -->
+                <mxCell id="a7" value="Logout/Selesai" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="swimlaneAdmin">
+                    <mxGeometry x="260" y="500" width="80" height="80" as="geometry" />
+                </mxCell>
+                <!-- ARROWS USER -->
+                <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u1" target="u2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u2" target="u3">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u3" target="u4">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <!-- Menu Utama ke Pilihan -->
+                <mxCell id="e4" value="Pinjam Buku" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u4" target="u5">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e5" value="Kembalikan Buku" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u4" target="u14">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e6" value="Bayar Denda" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u4" target="u22">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <!-- Pinjam Buku Flow -->
+                <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u5" target="u6">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u6" target="u7">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u7" target="u8">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e10" value="Ya" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u8" target="u9">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u9" target="u10">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u10" target="u11">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e13" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u8" target="u12">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u12" target="u13">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <!-- Kembalikan Buku Flow -->
+                <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u14" target="u15">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u15" target="u16">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u16" target="u17">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e18" value="Ya" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u17" target="u18">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e19" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u18" target="u19">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e20" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u19" target="u20">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e21" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u17" target="u21">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <!-- Bayar Denda Flow -->
+                <mxCell id="e22" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u22" target="u23">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u23" target="u24">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="e24" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneUser" source="u24" target="u25">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <!-- ARROWS ADMIN -->
+                <mxCell id="ea1" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a1" target="a2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="ea2" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a2" target="a3">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="ea3" value="Kelola Buku" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a3" target="a4">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="ea4" value="Kelola Member" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a3" target="a5">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="ea5" value="Kelola Transaksi" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a3" target="a6">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="ea6" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a4" target="a7">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="ea7" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a5" target="a7">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="ea8" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" edge="1" parent="swimlaneAdmin" source="a6" target="a7">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

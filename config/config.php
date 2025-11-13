@@ -14,7 +14,8 @@ $connection = mysqli_connect($host, $username, $password, $database_name); // Me
 // Fungsi: Menampilkan data dari query SQL
 // Parameter: $dataKategori (query SQL)
 // Return: array data hasil query
-function queryReadData($dataKategori) {
+function queryReadData($dataKategori): array
+{
   global $connection;
   $result = mysqli_query($connection, $dataKategori); // Eksekusi query
   $items = [];
@@ -137,7 +138,8 @@ function search($keyword): array
 // Fungsi: Mencari data member berdasarkan keyword
 // Parameter: $keyword (string yang dicari)
 // Return: array data hasil pencarian
-function searchMember ($keyword) {
+function searchMember ($keyword): array
+{
      // search member terdaftar || admin
    $searchMember = "SELECT * FROM member WHERE 
    nisn LIKE '%$keyword%' OR 
